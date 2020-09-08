@@ -18,5 +18,19 @@
   "homepage": "https://github.com/kazukifuji/museum#readme",
   "browserslist": [
     "IE 11"
-  ]
+  ],
+  "dependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "babel-loader": "^8.1.0",
+    "browser-sync": "^2.26.12",
+    "core-js": "^3.6.5",
+    "gulp": "^4.0.2",
+    "gulp-connect-php": "^1.0.3",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sass-glob": "^1.1.0",
+    "webpack": "^4.44.1",
+    "webpack-stream": "^6.1.0"
+  }
 }
