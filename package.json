@@ -1,0 +1,22 @@
+{
+  "name": "museum",
+  "version": "1.0.0",
+  "description": "WordPress theme 「museum」",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kazukifuji/museum.git"
+  },
+  "author": "kazukifuji",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/kazukifuji/museum/issues"
+  },
+  "homepage": "https://github.com/kazukifuji/museum#readme",
+  "browserslist": [
+    "IE 11"
+  ]
+}
