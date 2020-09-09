@@ -1,0 +1,12 @@
+html {
+  color: $black;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: map-get($fonts, 'main');
+  font-size: 1.3rem;
+  line-height: 1.4;
+  position: relative;
+  z-index: 0;
+}
