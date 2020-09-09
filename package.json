@@ -30,6 +30,7 @@
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-sass-glob": "^1.1.0",
+    "objectFitPolyfill": "^2.3.0",
     "webpack": "^4.44.1",
     "webpack-stream": "^6.1.0"
   }

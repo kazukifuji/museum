@@ -1,3 +1,6 @@
+//object-fitポリフィル
+import objectFitPolyfill from 'objectFitPolyfill';
+
 import setHeroHeaderHeight from './features/setHeroHeaderHeight';
 
 window.addEventListener( 'load', () => {
