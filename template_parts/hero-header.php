@@ -1,4 +1,4 @@
-<div class="hero-header">
+<div id="heroHeader" class="hero-header">
 
   <div class="hero-header__bg">
     <img class="hero-header__bg-img" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/header.jpg' ); ?>" alt="">
