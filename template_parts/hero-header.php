@@ -18,9 +18,7 @@
 
   <div class="hero-header__heading">
     <h1 class="hero-header__heading-logo">
-      <a class="hero-header__heading-logo-link" href="<?php echo esc_url( home_url() ); ?>">
-        <?php bloginfo(); ?>
-      </a>
+      <?php get_template_part('template_parts/logo'); ?>
     </h1>
 
     <p class="hero-header__heading-catch-copy">

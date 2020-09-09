@@ -85,26 +85,7 @@
     transform: translate(-50%, -50%);
 
     &-logo {
-      font-size: 3rem;
-      font-weight: normal;
       margin: 0;
-
-      @include media-query(sph) {
-        font-size: 3.5rem;
-      }
-
-      @include media-query(tc) {
-        font-size: 4rem;
-      }
-
-      @include media-query(pc) {
-        font-size: 4.5rem;
-      }
-
-      &-link {
-        color: inherit;
-        text-decoration: none;
-      }
     }
 
     &-catch-copy {
