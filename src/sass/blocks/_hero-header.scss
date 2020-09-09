@@ -1,0 +1,126 @@
+.hero-header {
+  color: white;
+  height: 100vh;
+  position: relative;
+  z-index: 0;
+
+  &::after {
+    animation: expansion 2.5s ease-in-out 0s infinite normal;
+    background: white;
+    content: '';
+    display: block;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+
+    @keyframes expansion {
+      0% {
+        transform-origin: top;
+        transform: scaleY(0);
+      }
+      44% {
+        transform-origin: top;
+        transform: scaleY(1);
+      }
+      45% { transform-origin: bottom; }
+      90% {
+        transform-origin: bottom;
+        transform: scaleY(0);
+      }
+      100% {
+        transform-origin: bottom;
+        transform: scaleY(0);
+      }
+    }
+  }
+
+  &__bg {
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+
+    &::before {
+      background: rgba(black, 0.5);
+      content: '';
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    &-img {
+      height: 100%;
+      object-fit: cover;
+      position: relative;
+      width: 100%;
+      z-index: -1;
+    }
+
+    &-grid-line-svg {
+      height: 100vh;
+      min-height: 100vw;
+      opacity: 0.2;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      stroke: white;
+      transform: translate(-50%, -50%);
+      width: 100vw;
+      min-width: 100vh;
+    }
+  }
+
+  &__heading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+
+    &-logo {
+      font-size: 3rem;
+      font-weight: normal;
+      margin: 0;
+
+      @include media-query(sph) {
+        font-size: 3.5rem;
+      }
+
+      @include media-query(tc) {
+        font-size: 4rem;
+      }
+
+      @include media-query(pc) {
+        font-size: 4.5rem;
+      }
+
+      &-link {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+
+    &-catch-copy {
+      margin: 0;
+
+      @include media-query(sph) {
+        font-size: 1.4rem;
+      }
+
+      @include media-query(tc) {
+        font-size: 1.5rem;
+      }
+
+      @include media-query(pc) {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
