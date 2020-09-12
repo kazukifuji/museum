@@ -34,22 +34,8 @@
       padding: 10px 20px;
       text-align: center;
       white-space: nowrap;
-
-      a {
-        color: inherit;
-        text-decoration: none;
-    
-        &:active {
-          color: inherit;
-        }
-    
-        &:focus {
-          outline: none;
-        }
-      }
     }
   }
-
   
   &__page-load-status {
     display: none;
