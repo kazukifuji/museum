@@ -79,6 +79,19 @@
 
       <button class="post-list__show-more-button" type="button">SEE MORE</button>
 
+      <div class="post-list__page-load-status">
+        <div class="infinite-scroll-request">
+          <div class="loader-ellips">
+            <span class="loader-ellips__dot"></span>
+            <span class="loader-ellips__dot"></span>
+            <span class="loader-ellips__dot"></span>
+            <span class="loader-ellips__dot"></span>
+          </div>
+        </div>
+        <p class="infinite-scroll-last">End of content</p>
+        <p class="infinite-scroll-error">No more pages to load</p>
+      </div>
+
       <?php if ( $wp_query->max_num_pages > 1 ) : ?>
         <div class="post-list__navigation">
 

@@ -50,6 +50,18 @@
     }
   }
 
+  
+  &__page-load-status {
+    display: none;
+
+    .infinite-scroll-last,
+    .infinite-scroll-error {
+      color: gray;
+      font-size: 2rem;
+      text-align: center;
+    }
+  }
+
   &__no-posts-text {
     color: gray;
     font-size: 2rem;
