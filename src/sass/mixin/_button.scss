@@ -1,0 +1,70 @@
+//ボタンのスタイルを出力
+@mixin button-1($size: normal) {
+  @if $size == small {
+    font-size: 1.3rem;
+    padding: 4px 10px;
+  } @else if $size == normal {
+    font-size: 1.5rem;
+    padding: 8px 25px;
+  } @else if $size ==large {
+    font-size: 1.8rem;
+    padding: 12px 50px;
+  }
+
+  background: none;
+  border: none;
+  color: $black;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  transition: color 0.5s linear;
+  user-select: none;
+  z-index: 0;
+
+  &::before {
+    background: $black;
+    content: '';
+    padding-top: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &::after {
+    border-top: 1px solid $black;
+    border-bottom: 1px solid $black;
+    box-sizing: border-box;
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -2;
+  }
+
+  &:active {
+    color: white;
+    &::before {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  &:hover {
+    @include media-query(pc) {
+      color: white;
+      &::before {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+}
