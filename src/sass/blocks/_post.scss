@@ -1,0 +1,126 @@
+.post {
+  width: 100%;
+
+  @include media-query(sph) {
+    width: 50%;
+  }
+
+  @include media-query(tc) {
+    width: 33.3333%;
+  }
+
+  @include media-query(pc) {
+    width: 25%;
+  }
+
+  &__link {
+    color: inherit;
+    display: block;
+    text-decoration: none;
+    width: 100%;
+
+    &:active {
+      color: inherit;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__featured-media {
+    min-height: 200px;
+    margin: 0;
+    overflow: hidden;
+    width: 100%;
+
+    img {
+      min-height: 200px;
+      height: 100%;
+      max-height: 400px;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.5s;
+      width: 100%;
+    }
+  }
+  &__link:hover &__featured-media {
+    @include media-query(pc) {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+  &__link:active &__featured-media {
+      img {
+        transform: scale(1.1);
+      }
+  }
+
+  &__content {
+    padding: 10px 25px 25px;
+
+    &-header {
+      border-bottom: 2px solid $gray;
+      margin-bottom: 5px;
+      padding-bottom: 5px;
+    }
+
+    &-title {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: normal;
+      transition: color 0.2s linear;
+      word-break: break-all;
+    }
+
+    &-footer {}
+
+    &-taxonomy {
+      display: flex;
+
+      &-icon {
+        margin-right: 2px;
+
+        &-svg {
+          fill: none;
+          height: 10px;
+          stroke: $black;
+          stroke-width: 2px;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          transform: scale(1.3);
+          width: 10px;
+        }
+      }
+
+      &-list {
+        font-size: 1.1rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        &-item {
+          display: inline-block;
+          margin: 2px 4px;
+        }
+      }
+    }
+  }
+  &:not(.has-post-thumbnail) &__content {
+    padding-top: 25px;
+  }
+  &__link:hover &__content {
+    @include media-query(pc) {
+      &-title {
+        color: gray;
+      }
+    }
+  }
+  &__link:active &__content {
+    &-title {
+      color: gray;
+    }
+  }
+
+}
