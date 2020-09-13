@@ -1,5 +1,4 @@
 .logo {
-  display: block;
   font-size: 3rem;
   font-weight: normal;
   text-align: center;
@@ -15,4 +14,8 @@
   @include media-query(pc) {
     font-size: 4.5rem;
   }
+}
+
+.sidebar .logo {
+  font-size: 3rem;
 }
