@@ -1,18 +1,15 @@
 .post-list {
   &__posts {
     &-sizer {
+      
       width: 100%;
-
+    
       @include media-query(sph) {
         width: 50%;
       }
-
-      @include media-query(tc) {
-        width: 33.3333%;
-      }
-
+    
       @include media-query(pc) {
-        width: 25%;
+        width: 33.3333%;
       }
     }
   }
