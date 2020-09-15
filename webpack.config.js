@@ -1,4 +1,4 @@
-const path = require('path');
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -32,5 +32,8 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new HardSourceWebpackPlugin()
+  ]
 };

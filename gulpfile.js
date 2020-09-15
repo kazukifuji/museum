@@ -36,7 +36,7 @@ const tasks = {
         .on( 'change', gulp.series(tasks.js, tasks.browserReload) );
     //php
     gulp.watch('./**/*.php')
-        .on('change', tasks.browserReload);
+        .on('change', gulp.series(tasks.browserReload) );
 
     done();
   },
