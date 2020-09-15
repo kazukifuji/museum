@@ -5,7 +5,6 @@ module.exports = {
   devtool: 'source-map',
   entry: './src/js/index.js',
   output: {
-    path: path.join(__dirname, 'dist'),
     filename: 'script.js'
   },
   watchOptions: {

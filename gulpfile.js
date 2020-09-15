@@ -30,32 +30,38 @@ const tasks = {
 
     //sass
     gulp.watch('./src/sass/**/*.scss')
-        .on( 'change', gulp.series(tasks.sass, browserSync.reload) );
+        .on( 'change', gulp.series(tasks.sass, tasks.browserReload) );
     //js
     gulp.watch('./src/js/**/*.js')
-        .on( 'change', gulp.series(tasks.js, browserSync.reload) );
+        .on( 'change', gulp.series(tasks.js, tasks.browserReload) );
     //php
     gulp.watch('./**/*.php')
-        .on('change', browserSync.reload);
+        .on('change', tasks.browserReload);
 
     done();
   },
 
-  sass: function(done) {
-    gulp.src('./src/sass/index.scss')
-        .pipe( gulpSassGlob() )
-        .pipe(
-          gulpSass({ outputStyle: 'expanded' }).on('error', gulpSass.logError)
-        )
-        .pipe( gulpRename('style.css') )
-        .pipe( gulp.dest('./dist/css') );
-
-    done();
+  sass: function() {
+    return (
+      gulp.src('./src/sass/index.scss')
+          .pipe( gulpSassGlob() )
+          .pipe(
+            gulpSass({ outputStyle: 'expanded' }).on('error', gulpSass.logError)
+          )
+          .pipe( gulpRename('style.css') )
+          .pipe( gulp.dest('./dist/css') )
+    );
   },
 
-  js: function(done) {
-    webpackStream(webpackConfig, webpack)
-    .pipe( gulp.dest('./dist/js') );
+  js: function() {
+    return (
+      webpackStream(webpackConfig, webpack).on('error', function() { this.emit('end'); })
+      .pipe( gulp.dest('./dist/js') )
+    );
+  },
+
+  browserReload: function(done) {
+    browserSync.reload();
 
     done();
   },
