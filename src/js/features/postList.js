@@ -41,6 +41,14 @@ export default () => {
       history: false,
     } );
 
+    let url = new URL( location.href );
+    const startLoadCount = Number( url.searchParams.get('load_count') );
+    infiniteScroll.on( 'load', function( document, path ) {
+      url = new URL( path );
+      url.searchParams.set( 'load_count', startLoadCount + this.loadCount );
+      history.replaceState(null, '', url);
+    } );
+
   } else {
     document.querySelector(showMoreButtonElemSelector).style.display = 'none';
     document.querySelector( postListStatusElemSelector ).style.display = 'block';
