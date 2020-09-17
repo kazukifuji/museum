@@ -3,5 +3,7 @@ export default () => {
   const heroHeader = document.getElementById('heroHeader');
   if (!heroHeader) return;
 
-  heroHeader.style.height = window.innerHeight + 'px';
+  const header = document.getElementById('header');
+
+  heroHeader.style.height = window.innerHeight - header.offsetHeight + 'px';
 }

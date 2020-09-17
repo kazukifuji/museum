@@ -1,0 +1,25 @@
+.header {
+  background: white;
+  border-bottom: 1px solid $gray;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  height: $header-height;
+  padding: 0 20px;
+  position: fixed;
+  left: 0;
+  user-select: none;
+  width: 100%;
+  z-index: 2;
+
+  @include media-query(pc) {
+    display: none;
+  }
+
+  &__logo {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
