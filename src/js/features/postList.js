@@ -17,15 +17,36 @@ export default () => {
   } );
 
   //show-more-button要素にクリック時、投稿追加表示の機能を設定
-  InfiniteScroll.imagesLoaded = ImagesLoaded;
-  const infiniteScroll = new InfiniteScroll( container, {
-    outlayer: masonry,
-    path: '.post-list__navigation-next-page-link > a',
-    append: '.post',
-    button: '.post-list__show-more-button',
-    scrollThreshold: false,
-    hideNav: '.post-list__navigation',
-    status: '.post-list__page-load-status',
-  } );
+  const nextPageLinkElemSelector = '.post-list__navigation-next-page-link > a';
+  const showMoreButtonElemSelector = '.post-list__show-more-button';
+  const postListStatusElemSelector = '.post-list__page-load-status';
+  const postListNavElemSelector = '.post-list__navigation';
+  
+  const nextPageLinkElem = document.querySelector(nextPageLinkElemSelector);
+  if ( nextPageLinkElem !== null ) {
+    InfiniteScroll.imagesLoaded = ImagesLoaded;
+
+    const nextPageURL = new URL( nextPageLinkElem.href );
+    nextPageURL.searchParams.delete('load_count');
+    nextPageLinkElem.href = nextPageURL.href;
+    
+    const infiniteScroll = new InfiniteScroll( container, {
+      outlayer: masonry,
+      path: nextPageLinkElemSelector,
+      append: '.post',
+      button: showMoreButtonElemSelector,
+      scrollThreshold: false,
+      status: postListStatusElemSelector,
+      hideNav: postListNavElemSelector,
+      history: false,
+    } );
+
+  } else {
+    document.querySelector(showMoreButtonElemSelector).style.display = 'none';
+    document.querySelector( postListStatusElemSelector ).style.display = 'block';
+    document.querySelector( postListStatusElemSelector + ' > .infinite-scroll-request' ).style.display = 'none';
+    document.querySelector( postListStatusElemSelector + ' > .infinite-scroll-error' ).style.display = 'none';
+    document.querySelector( postListNavElemSelector ).style.display = 'none';
+  }
 
 }
