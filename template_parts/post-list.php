@@ -6,72 +6,11 @@
 
         <div class="post-list__posts-sizer"></div>
 
+        <?php the_prev_post_list_items(); ?>
+
         <?php while ( have_posts() ) : the_post(); ?>
           
-          <article <?php post_class(); ?>>
-          
-            <a class="post__link" href="<?php the_permalink(); ?>">
-            
-              <?php if ( has_post_thumbnail() ) : ?>
-                <figure class="post__featured-media">
-                  <?php the_post_thumbnail( 'post-thumbnail', [ 'data-object-fit' => 'cover' ] ); ?>
-                </figure><!--post__featured-media-->
-              <?php endif; ?>
-
-              <div class="post__content">
-
-                <?php if ( esc_html( get_the_title() ) !== '' ) : ?>
-                  <div class="post__content-header">
-                    <?php the_title( '<h2 class="post__content-title">', '</h2>' ); ?>
-                  </div><!--post__content-header-->
-                <?php endif; ?>
-                
-                <div class="post__content-footer">
-
-                  <?php $categories = get_the_category();
-                  if ( $categories ) : ?>
-                    <div class="post__content-taxonomy">
-                      <span class="post__content-taxonomy-icon">
-                        <svg class="post__content-taxonomy-icon-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
-                          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                        </svg>
-                      </span>
-
-                      <ul class="post__content-taxonomy-list">
-                        <?php foreach ( $categories as $category ) : ?>
-                          <li class="post__content-taxonomy-list-item"><?php echo esc_html( $category->name ); ?></li>
-                        <?php endforeach; ?>
-                      </ul>
-
-                    </div><!--.post__content-taxonomy-->
-                  <?php endif; ?>
-
-                  <?php $tags = get_the_tags();
-                  if ( $tags ) : ?>
-                    <div class="post__content-taxonomy">
-                      <span class="post__content-taxonomy-icon">
-                        <svg class="post__content-taxonomy-icon-svg" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" >
-                          <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-                          <line x1="7" y1="7" x2="7.01" y2="7"></line>
-                        </svg>
-                      </span>
-
-                      <ul class="post__content-taxonomy-list">
-                        <?php foreach ( $tags as $tag ) : ?>
-                          <li class="post__content-taxonomy-list-item"><?php echo esc_html( $tag->name ); ?></li>
-                        <?php endforeach; ?>
-                      </ul>
-
-                    </div><!--.post__content-taxonomy-->
-                  <?php endif; ?>
-                
-                </div><!--post_content-footer-->
-              
-              </div><!--.post__content-->
-
-            </a>
-
-          </article><!--.post-->
+          <?php the_post_list_item( $post->ID ); ?>
 
         <?php endwhile; ?>
 
