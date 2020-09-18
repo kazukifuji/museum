@@ -11,7 +11,7 @@ export default () => {
   const container = postList.querySelector('.post-list__posts');
 
   const masonry = new Masonry( container, {
-    itemSelector: '.post',
+    itemSelector: '.post-item',
     columnWidth: '.post-list__posts-sizer',
     percentPosition: true,
   } );
@@ -33,7 +33,7 @@ export default () => {
     const infiniteScroll = new InfiniteScroll( container, {
       outlayer: masonry,
       path: nextPageLinkElemSelector,
-      append: '.post',
+      append: '.post-item',
       button: showMoreButtonElemSelector,
       scrollThreshold: false,
       status: postListStatusElemSelector,
