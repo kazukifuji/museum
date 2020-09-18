@@ -1,4 +1,4 @@
-<div id="postList" class="post-list">
+<article id="postList" class="post-list">
 
     <?php if ( have_posts() ) : ?>
 
@@ -51,4 +51,4 @@
 
     <?php endif; ?>
 
-</div><!--.post-list-->
+</article><!--.post-list-->
