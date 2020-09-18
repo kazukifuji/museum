@@ -4,8 +4,9 @@
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: $header-height;
-  padding: 0 20px;
+  padding: 0 30px;
   position: fixed;
   left: 0;
   user-select: none;
@@ -18,8 +19,5 @@
 
   &__logo {
     margin: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
   }
 }
