@@ -1,6 +1,9 @@
 <?php
 //コンテンツ部分の関数
 
+//term_descriptionからpタグを削除
+remove_filter( 'term_description', 'wpautop' );
+
 //メイクエリの制御
 add_action( 'pre_get_posts', function($query) {
   if ( is_admin() || !$query->is_main_query() ) return;
