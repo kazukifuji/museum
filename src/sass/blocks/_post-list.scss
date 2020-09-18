@@ -1,7 +1,6 @@
 .post-list {
   &__posts {
     &-sizer {
-      
       width: 100%;
     
       @include media-query(sph) {
