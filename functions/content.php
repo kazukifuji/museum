@@ -4,6 +4,39 @@
 //term_descriptionからpタグを削除
 remove_filter( 'term_description', 'wpautop' );
 
+
+//the_archive_title()で出力されるテキストをカスタマイズ
+add_filter( 'get_the_archive_title', function($title) {
+  //ホームページ
+  if ( is_home() || is_front_page() ) {
+    $title = '最近の投稿';
+
+  //カテゴリー、タグアーカイブ
+  } elseif ( is_category() || is_tag() || is_tax() ) {
+    $title = single_cat_title('', false);
+    
+  //日時アーカイブ
+  } elseif ( is_date() ) {
+    //年別
+    if ( is_year() ) {
+      $title = get_the_time('Y年');
+    //月別
+    } elseif ( is_month() ) {
+      $title = get_the_time('Y年m月');
+    //日別
+    } else {
+      $title = get_the_time('Y年m月d日');
+    }
+
+  //検索結果ページ
+  } elseif ( is_search() ) {
+    $title = '「' . esc_html( get_search_query() ) . '」の検索結果';
+  }
+
+  return $title;
+} );
+
+
 //メイクエリの制御
 add_action( 'pre_get_posts', function($query) {
   if ( is_admin() || !$query->is_main_query() ) return;
@@ -11,6 +44,7 @@ add_action( 'pre_get_posts', function($query) {
   //投稿の先頭固定表示設定を反映させない
   $query->set( 'ignore_sticky_posts', true );
 } );
+
 
 //投稿リストの投稿アイテムを出力
 //※引数「$post_id」を指定しない場合、現在の投稿を取得。
