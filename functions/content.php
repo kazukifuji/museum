@@ -1,6 +1,83 @@
 <?php
 //コンテンツ部分の関数
 
+//term_descriptionからpタグを削除
+remove_filter( 'term_description', 'wpautop' );
+
+
+//the_archive_title()で出力されるテキストをカスタマイズ
+add_filter( 'get_the_archive_title', function($title) {
+  //ホームページ
+  if ( is_home() || is_front_page() ) {
+    $title = '最近の投稿';
+
+  //カテゴリー、タグアーカイブ
+  } elseif ( is_category() || is_tag() || is_tax() ) {
+
+    if ( is_category() || is_tax() ) {
+      $icon = <<<EOD
+      <svg class="post-list__heading-icon-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+      </svg>
+      EOD;
+
+    } else if ( is_tag() ) {
+      $icon = <<<EOD
+      <svg class="post-list__heading-icon-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" >
+        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+        <line x1="7" y1="7" x2="7.01" y2="7"></line>
+      </svg>
+      EOD;
+    }
+
+    $title = single_cat_title('', false);
+    
+  //日時アーカイブ
+  } else if ( is_date() ) {
+    $icon = <<<EOD
+    <svg class="post-list__heading-icon-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"></circle>
+      <polyline points="12 6 12 12 16 14"></polyline>
+    </svg>
+    EOD;
+
+    //年別
+    if ( is_year() ) {
+      $title = get_the_time('Y年');
+    //月別
+    } elseif ( is_month() ) {
+      $title = get_the_time('Y年m月');
+    //日別
+    } else {
+      $title = get_the_time('Y年m月d日');
+    }
+
+  //投稿著者アーカイブ
+  } else if ( is_author() ) {
+    $icon = <<<EOD
+    <svg class="post-list__heading-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle>
+    </svg>
+    EOD;
+    $title = get_queried_object()->data->display_name;
+
+  //検索結果ページ
+  } else if ( is_search() ) {
+    $icon = <<<EOD
+    <svg class="post-list__heading-icon-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    EOD;
+    $title = '「' . esc_html( get_search_query() ) . '」の検索結果';
+  }
+
+  if ( isset( $icon ) ) echo '<span class="post-list__heading-icon">' . $icon . '</span>';
+
+  return $title;
+} );
+
+
 //メイクエリの制御
 add_action( 'pre_get_posts', function($query) {
   if ( is_admin() || !$query->is_main_query() ) return;
@@ -8,6 +85,7 @@ add_action( 'pre_get_posts', function($query) {
   //投稿の先頭固定表示設定を反映させない
   $query->set( 'ignore_sticky_posts', true );
 } );
+
 
 //投稿リストの投稿アイテムを出力
 //※引数「$post_id」を指定しない場合、現在の投稿を取得。
@@ -61,7 +139,7 @@ function the_post_list_item( $post_id = null ) {
           if ( $tags ) : ?>
             <div class="post-item__content-taxonomy">
               <span class="post-item__content-taxonomy-icon">
-                <svg class="post-item__content-taxonomy-icon-svg" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" >
+                <svg class="post-item__content-taxonomy-icon-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" >
                   <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
                   <line x1="7" y1="7" x2="7.01" y2="7"></line>
                 </svg>
