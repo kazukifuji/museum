@@ -14,7 +14,7 @@
               ?>
             </p>
 
-          <h1 class="post-list__heading-title"><?php the_archive_title(); ?></h1>
+          <?php the_archive_title( '<h1 class="post-list__heading-title">', '</h1>' ); ?>
 
           <?php if ( is_category() || is_tag() || is_tax() ) : ?>
             <?php $desc_text = esc_html( get_queried_object()->description );
