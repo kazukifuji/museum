@@ -103,4 +103,8 @@
 
   <?php endif; ?>
   
+  <?php if ( comments_open() && !post_password_required() ) : ?>
+    <?php comments_template(); ?>
+  <?php endif; ?>
+  
 <?php get_footer(); ?>

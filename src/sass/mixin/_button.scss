@@ -69,3 +69,42 @@
   }
 
 }
+
+@mixin button-2($size: normal) {
+  @if $size == small {
+    font-size: 1.3rem;
+    padding: 4px 10px;
+  } @else if $size == normal {
+    font-size: 1.5rem;
+    padding: 8px 25px;
+  } @else if $size ==large {
+    font-size: 1.8rem;
+    padding: 12px 50px;
+  }
+
+  background: $black;
+  border: 1px solid $black;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s linear, color 0.2s linear;
+  user-select: none;
+
+  &:active {
+    background: none;
+    color: $black;
+  }
+
+  &:hover {
+    @include media-query(pc) {
+      background: none;
+      color: $black;
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+}
