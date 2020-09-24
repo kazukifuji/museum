@@ -19,6 +19,7 @@
         <ol class="comment-list-items">
           <?php wp_list_comments([
             'style' => 'ol',
+            'callback'    => 'custom_list_comments',
           ]); ?>
         </ol>
 
