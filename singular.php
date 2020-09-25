@@ -104,7 +104,9 @@
   <?php endif; ?>
   
   <?php if ( comments_open() && !post_password_required() ) : ?>
-    <?php comments_template(); ?>
+    <div class="wrapper">
+      <?php comments_template(); ?>
+    </div><!--.wrapper-->
   <?php endif; ?>
   
 <?php get_footer(); ?>
