@@ -102,6 +102,12 @@
     <p class="main__error-text">No posts</p>
 
   <?php endif; ?>
+
+  <?php if ( is_single() ) : ?>
+    <div class="wrapper">
+      <?php get_template_part('template_parts/posts-navigation'); ?>
+    </div><!--.wrapper-->
+  <?php endif; ?>
   
   <?php if ( comments_open() && !post_password_required() ) : ?>
     <div class="wrapper">
