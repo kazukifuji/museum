@@ -1,0 +1,120 @@
+.posts-navigation {
+  &::after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+
+  &__item {
+    max-width: 500px;
+    margin: 10px auto;
+
+    @include media-query(tc) {
+      width: 45%;
+
+      &.-prev {
+        float: left;
+      }
+
+      &.-next {
+        float: right;
+      }
+    }
+
+    &-flex-container {
+      align-items: center;
+      display: flex;
+    }
+    &.-next &-flex-container {
+      flex-direction: row-reverse;
+    }
+
+    &-icon {
+
+      &-svg {
+        fill: none;
+        height: 10px;
+        stroke: $black;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transform: scale(2.2);
+        width: 10px;
+      }
+    }
+    &.-next &-icon {
+      transform: rotateY(180deg);
+    }
+
+    &-title {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin: 0;
+      user-select: none;
+    }
+    &.-prev &-title {
+      margin-left: 5px;
+    }
+    &.-next &-title {
+      margin-right: 5px;
+    }
+
+    &-post {
+      border-radius: 3px;
+      box-shadow: 0 0 10px rgba(gray, 0.2);
+      margin-top: 10px;
+      transition: box-shadow 0.5s;
+
+      &:hover {
+        @include media-query(pc) {
+          box-shadow: 0 0 10px rgba(gray, 0.8);
+        }
+      }
+      
+      &:active {
+        box-shadow: 0 0 10px rgba(gray, 0.8);
+      }
+
+      &-link {
+        display: block;
+        padding: 20px 20px;
+      }
+
+      &-thumbnail {
+        margin: 0;
+        position: relative;
+        width: 30%;
+        min-width: 100px;
+  
+        &::before {
+          content: '';
+          display: block;
+          padding-top: 73%;
+        }
+  
+        img {
+          height: 100%;
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+        }
+      }
+
+      &-title {
+        font-size: 1.5rem;
+        font-weight: normal;
+        margin: 0;
+      }
+    }
+    &.-prev &-post-thumbnail {
+      margin-right: 10px;
+    }
+    &.-next &-post-thumbnail {
+      margin-left: 10px;
+    }
+
+  }
+
+}
