@@ -7,7 +7,7 @@
 
   &__item {
     max-width: 500px;
-    margin: 10px auto;
+    margin: 15px auto;
 
     @include media-query(tc) {
       width: 45%;
