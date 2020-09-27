@@ -89,19 +89,8 @@
     }
 
     &-catch-copy {
+      font-size: 1.3rem;
       margin: 0;
-
-      @include media-query(sph) {
-        font-size: 1.4rem;
-      }
-
-      @include media-query(tc) {
-        font-size: 1.5rem;
-      }
-
-      @include media-query(pc) {
-        font-size: 1.6rem;
-      }
     }
   }
 }

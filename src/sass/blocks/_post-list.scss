@@ -13,10 +13,6 @@
         content: '-';
         display: inline;
       }
-
-      @include media-query(pc) {
-        font-size: 1.4rem;
-      }
     }
 
     &-icon {
@@ -39,31 +35,11 @@
       font-size: 2rem;
       font-weight: normal;
       margin: 0;
-
-      @include media-query(sph) {
-        font-size: 2.2rem;
-      }
-
-      @include media-query(tc) {
-        font-size: 2.4rem;
-      }
-
-      @include media-query(pc) {
-        font-size: 2.5rem;
-      }
     }
 
     &-description {
       margin-top: 18px;
       margin-bottom: 0;
-
-      @include media-query(tc) {
-        font-size: 1.5rem;
-      }
-
-      @include media-query(pc) {
-        font-size: 1.6rem;
-      }
     }
   }
 
