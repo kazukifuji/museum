@@ -1,11 +1,23 @@
 html {
   color: $black;
   font-size: 62.5%;
+
+  @include media-query(sph) {
+    font-size: 65%;
+  }
+
+  @include media-query(tc) {
+    font-size: 67%;
+  }
+
+  @include media-query(tc) {
+    font-size: 70%;
+  }
 }
 
 body {
   font-family: map-get($fonts, 'main');
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   line-height: 1.4;
   position: relative;
   z-index: 0;
