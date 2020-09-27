@@ -2,18 +2,6 @@
   font-size: 3rem;
   font-weight: normal;
   text-align: center;
-
-  @include media-query(sph) {
-    font-size: 3.5rem;
-  }
-
-  @include media-query(tc) {
-    font-size: 4rem;
-  }
-
-  @include media-query(pc) {
-    font-size: 4.5rem;
-  }
 }
 
 .header .logo {

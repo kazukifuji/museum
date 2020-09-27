@@ -1,18 +1,6 @@
 .comments {
   font-size: 1.3rem;
 
-  @include  media-query(sph) {
-    font-size: 1.35rem;
-  }
-
-  @include  media-query(tc) {
-    font-size: 1.4rem;
-  }
-
-  @include  media-query(pc) {
-    font-size: 1.5rem;
-  }
-
   .comment-respond {
     overflow: hidden;
 
