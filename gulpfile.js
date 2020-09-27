@@ -28,9 +28,12 @@ const tasks = {
       }
     );
 
-    //sass
+    //sass, editorStyle
     gulp.watch('./src/sass/**/*.scss')
-        .on( 'change', gulp.series(tasks.sass, tasks.browserReload) );
+        .on( 'change', gulp.series(
+            gulp.parallel( tasks.sass, tasks.editorStyle ),
+            tasks.browserReload
+        ) );
     //js
     gulp.watch('./src/js/**/*.js')
         .on( 'change', gulp.series(tasks.js, tasks.browserReload) );
@@ -53,6 +56,17 @@ const tasks = {
     );
   },
 
+  editorStyle: function() {
+    return (
+      gulp.src('./src/sass/editor-style.scss')
+          .pipe( gulpSassGlob() )
+          .pipe(
+            gulpSass({ outputStyle: 'expanded' }).on('error', gulpSass.logError)
+          )
+          .pipe( gulp.dest('./dist/css') )
+    );
+  },
+
   js: function() {
     return (
       webpackStream(webpackConfig, webpack).on('error', function() { this.emit('end'); })
@@ -68,7 +82,7 @@ const tasks = {
 };
 
 //リソースからファイルを出力
-exports.default = gulp.parallel( tasks.sass, tasks.js );
+exports.default = gulp.parallel( tasks.sass, tasks.editorStyle, tasks.js );
 
 //監視
 exports.watch = tasks.watch;
