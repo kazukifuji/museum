@@ -52,7 +52,8 @@
   }
 
   &__content {
-    padding: 10px 25px 50px;
+    margin-bottom: 40px;
+    padding: 10px 25px 10px;
 
     &-header {
       border-bottom: 2px solid $gray;
@@ -100,9 +101,6 @@
         }
       }
     }
-  }
-  &:not(.has-post-thumbnail) &__content {
-    padding-top: 25px;
   }
   &__link:hover &__content {
     @include media-query(pc) {
