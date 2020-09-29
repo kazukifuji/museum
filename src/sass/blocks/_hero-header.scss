@@ -46,7 +46,7 @@
     z-index: -1;
 
     &::before {
-      background: rgba(black, 0.5);
+      background: rgba(black, 0.25);
       content: '';
       height: 100%;
       position: absolute;
@@ -66,7 +66,7 @@
     &-grid-line-svg {
       height: 100vh;
       min-height: 100vw;
-      opacity: 0.2;
+      opacity: 0.25;
       position: absolute;
       top: 50%;
       left: 50%;
