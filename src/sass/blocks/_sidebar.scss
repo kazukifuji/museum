@@ -57,7 +57,7 @@
     }
 
     @include media-query(pc) {
-      padding: 50px 40px;
+      padding: 50px 30px;
     }
 
     & > * + * {
