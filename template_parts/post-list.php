@@ -3,35 +3,6 @@
 <?php if ( have_posts() ) : ?>
   <article id="postList" class="post-list">
 
-    <?php if ( is_archive() || is_search() ) : ?>
-      <div class="wrapper">
-        <div class="post-list__heading">
-
-            <p class="post-list__heading-subtitle">
-              <?php if ( is_search() ) echo 'search';
-              elseif ( is_date() ) echo 'date';
-              elseif ( is_author() ) echo 'author';
-              elseif ( is_category() ) echo 'category';
-              elseif ( is_tag() ) echo 'tag';
-              elseif ( is_tax() ) echo esc_html( get_query_var('taxonomy') );
-              ?>
-            </p>
-
-          <?php the_archive_title( '<h1 class="post-list__heading-title">', '</h1>' ); ?>
-
-          <?php if ( is_category() || is_tag() || is_tax() ) : ?>
-            <?php $desc_text = esc_html( get_queried_object()->description );
-            if ( $desc_text !== '' ) : ?>
-
-              <p class="post-list__heading-description"><?php echo $desc_text; ?></p>
-
-            <?php endif; ?>
-          <?php endif; ?>
-
-        </div><!--.post-list__heading-->
-      </div><!--.wrapper-->
-    <?php endif; ?>
-
     <div class="post-list__posts">
 
       <div class="post-list__posts-sizer"></div>
