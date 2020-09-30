@@ -35,8 +35,6 @@
                   </svg>
                   EOD;
                 }
-            
-                $title = single_cat_title('', false);
                 
               //日時アーカイブ
               } else if ( is_date() ) {
@@ -46,18 +44,7 @@
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
                 EOD;
-            
-                //年別
-                if ( is_year() ) {
-                  $title = get_the_time('Y年');
-                //月別
-                } elseif ( is_month() ) {
-                  $title = get_the_time('Y年m月');
-                //日別
-                } else {
-                  $title = get_the_time('Y年m月d日');
-                }
-            
+
               //投稿著者アーカイブ
               } else if ( is_author() ) {
                 $icon = <<<EOD
@@ -65,7 +52,6 @@
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle>
                 </svg>
                 EOD;
-                $title = get_queried_object()->data->display_name;
             
               //検索結果ページ
               } else if ( is_search() ) {
@@ -75,7 +61,6 @@
                   <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
                 EOD;
-                $title = '「' . esc_html( get_search_query() ) . '」の検索結果';
               }
             
               if ( isset( $icon ) ) echo '<span class="main__heading-icon">' . $icon . '</span>';
