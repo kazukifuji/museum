@@ -5,6 +5,15 @@
 remove_filter( 'term_description', 'wpautop' );
 
 
+//メイクエリの制御
+add_action( 'pre_get_posts', function($query) {
+  if ( is_admin() || !$query->is_main_query() ) return;
+
+  //投稿の先頭固定表示設定を反映させない
+  $query->set( 'ignore_sticky_posts', true );
+} );
+
+
 //the_archive_title()で出力されるテキストをカスタマイズ
 add_filter( 'get_the_archive_title', function($title) {
   //ホームページ
@@ -42,12 +51,22 @@ add_filter( 'get_the_archive_title', function($title) {
 } );
 
 
-//メイクエリの制御
-add_action( 'pre_get_posts', function($query) {
-  if ( is_admin() || !$query->is_main_query() ) return;
+//パスワード保護ページの内容をカスタマイズ
+add_filter( 'the_password_form', function() {
+  ?>
 
-  //投稿の先頭固定表示設定を反映させない
-  $query->set( 'ignore_sticky_posts', true );
+  <form class="post-password-form" action="<?php echo esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ); ?>" method="post">
+    <p class="post-passsword-form__text">
+      <?php _e( 'This content is password protected. To view it please enter your password below:' ); ?>
+    </p>
+
+    <div class="post-password-form__flex-container">
+      <input class="post-password-form__textbox" name="post_password" type="password" size="20" placeholder="パスワード">
+      <input class="post-password-form__submit" type="submit" name="Submit" value="<?php echo esc_attr_x( 'Enter', 'post password form' ); ?>">
+    </div><!--.post-password-form__flex-container-->
+  </form>
+    
+  <?php
 } );
 
 
@@ -128,6 +147,7 @@ function the_post_list_item( $post_id = null ) {
 
   <?php
 }
+
 
 //'load_count'URLパラメータを元に、前のページの投稿リストの投稿アイテムを出力
 function the_prev_post_list_items() {
