@@ -51,6 +51,12 @@ add_filter( 'get_the_archive_title', function($title) {
 } );
 
 
+//パスワード保護ページの記事タイトルの「保護中：」の文言を削除
+add_filter( 'protected_title_format', function($title) {
+  return '%s';
+} );
+
+
 //パスワード保護ページの内容をカスタマイズ
 add_filter( 'the_password_form', function() {
   ?>
