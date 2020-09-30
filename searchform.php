@@ -1,7 +1,7 @@
 <form id="searchform" class="searchform" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
   <div class="searchform__flex-container">
 
-    <input id="s" class="searchform__textbox" type="text" value="" name="s" placeholder="キーワード検索" />
+    <input id="s" class="searchform__textbox" type="text" value="" name="s" placeholder="キーワード検索">
 
     <button  id="searchsubmit" class="searchform__submit" type="submit" value="Search">
       <svg class="searchform__submit-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
