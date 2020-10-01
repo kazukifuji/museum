@@ -2,29 +2,61 @@
   background: none;
   border: none;
   cursor: pointer;
-  display: block;
-  height: 30px;
+  height: 100%;
+  overflow: hidden;
   padding: 0;
-  position: relative;
-  width: 70px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 115px;
 
-  &:focus {
-    outline: none;
+  &::before {
+    background: $black;
+    content: '';
+    padding-top: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &.-active::before {
+    transform: translate(-50%, -50%) scale(1);
   }
 
   &__svg {
-    stroke: $black;
-    stroke-width: 1px;
+    display: inline-block;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    stroke: $black;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1px;
     transform-origin: center;
-    transition: transform 0.5s;
+    transition: transform 0.5s, stroke 0.5s;
     width: 100%;
 
-    &:nth-child(1) { top: 50%; left: 50%; transform: translateX(-50%); }
-    &:nth-child(2) { bottom: 50%; left: 50%; transform: translateX(-50%); }
+    &:nth-child(1) {
+      transform: translate(-50%, -100%);
+    }
+    &:nth-child(2) {
+      transform: translate(-50%, 0);
+    }
   }
+
   &.-active &__svg {
-    &:nth-child(1) { transform: translateX(-50%) translateY(-50%) rotate(18deg); }
-    &:nth-child(2) { transform: translateX(-50%) translateY(50%) rotate(-18deg); }
+    stroke: white;
+
+    &:nth-child(1) {
+      transform: translate(-50%, -50%) rotate(-20deg);
+    }
+
+    &:nth-child(2) {
+      transform: translate(-50%, -50%) rotate(20deg);
+    }
   }
 }
