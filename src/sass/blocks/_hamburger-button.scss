@@ -5,8 +5,10 @@
   height: 100%;
   overflow: hidden;
   padding: 0;
-  position: relative;
-  width: 100px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 115px;
 
   &::before {
     background: $black;
