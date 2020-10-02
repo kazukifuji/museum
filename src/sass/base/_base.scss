@@ -28,3 +28,8 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+[data-whatinput="mouse"] *:focus,
+[data-whatinput="touch"] *:focus {
+  outline: none;
+}
