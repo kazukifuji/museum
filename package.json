@@ -36,6 +36,7 @@
     "masonry-layout": "^4.2.2",
     "objectFitPolyfill": "^2.3.0",
     "webpack": "^4.44.1",
-    "webpack-stream": "^6.1.0"
+    "webpack-stream": "^6.1.0",
+    "what-input": "^5.2.10"
   }
 }
