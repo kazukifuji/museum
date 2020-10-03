@@ -1,5 +1,5 @@
-//object-fitポリフィル
 import objectFitPolyfill from 'objectFitPolyfill';
+import whatInput from 'what-input';
 
 import hamburgerButton from './features/hamburgerButton';
 import setHeroHeaderHeight from './features/setHeroHeaderHeight';

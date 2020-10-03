@@ -13,10 +13,6 @@
     display: block;
     width: 100%;
 
-    &:active {
-      color: inherit;
-    }
-
     &:focus {
       outline: none;
     }
@@ -38,17 +34,12 @@
       width: 100%;
     }
   }
-  &__link:hover &__featured-media {
-    @include media-query(pc) {
-      img {
-        transform: scale(1.1);
-      }
+
+  &__link:hover &__featured-media,
+  &__link:focus &__featured-media {
+    img {
+      transform: scale(1.1);
     }
-  }
-  &__link:active &__featured-media {
-      img {
-        transform: scale(1.1);
-      }
   }
 
   &__content {
@@ -103,21 +94,8 @@
       }
     }
   }
-  &__link:hover &__content {
-    @include media-query(pc) {
-      background: $black;
-      color: white;
-
-      &-taxonomy {
-        &-icon {
-          &-svg {
-            stroke: white;
-          }
-        }
-      }
-    }
-  }
-  &__link:active &__content {
+  &__link:hover &__content,
+  &__link:focus &__content {
     background: $black;
     color: white;
 
@@ -129,5 +107,4 @@
       }
     }
   }
-
 }

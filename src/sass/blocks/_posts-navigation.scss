@@ -61,23 +61,18 @@
 
     &-post {
       border-radius: 3px;
-      box-shadow: 0 0 10px rgba(gray, 0.2);
       margin-top: 10px;
-      transition: box-shadow 0.5s;
-
-      &:hover {
-        @include media-query(pc) {
-          box-shadow: 0 0 10px rgba(gray, 0.8);
-        }
-      }
-      
-      &:active {
-        box-shadow: 0 0 10px rgba(gray, 0.8);
-      }
 
       &-link {
+        box-shadow: 0 0 10px rgba(gray, 0.2);
         display: block;
+        outline: none;
         padding: 20px 20px;
+        transition: box-shadow 0.5s;
+
+        &:hover, &:focus {
+          box-shadow: 0 0 10px rgba(gray, 0.8);
+        }
       }
 
       &-thumbnail {

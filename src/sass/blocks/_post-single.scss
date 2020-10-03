@@ -106,16 +106,10 @@
           padding: 2px 10px;
           transition: background 0.2s linear, color 0.2s linear;
 
-          @include media-query(pc) {
-            &:hover {
-              background: $black;
-              color: white;
-            }
-          }
-
-          &:active {
+          &:hover, &:focus {
             background: $black;
             color: white;
+            outline: none;
           }
         }
       }
