@@ -19,6 +19,13 @@
 
     display: block;
     margin: 20px auto;
+
+    &:disabled {
+      color: white;
+      &::before {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
   }
 
   &__navigation {
