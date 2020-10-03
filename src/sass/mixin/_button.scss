@@ -48,26 +48,12 @@
     z-index: -2;
   }
 
-  &:active {
+  [data-whatinput="mouse"] &:hover {
     color: white;
     &::before {
       transform: translate(-50%, -50%) scale(1);
     }
   }
-
-  &:hover {
-    @include media-query(pc) {
-      color: white;
-      &::before {
-        transform: translate(-50%, -50%) scale(1);
-      }
-    }
-  }
-
-  &:focus {
-    outline: none;
-  }
-
 }
 
 @mixin button-2($size: normal) {
@@ -91,20 +77,8 @@
   transition: background 0.2s linear, color 0.2s linear;
   user-select: none;
 
-  &:active {
+  [data-whatinput="mouse"] &:hover {
     background: none;
     color: $black;
   }
-
-  &:hover {
-    @include media-query(pc) {
-      background: none;
-      color: $black;
-    }
-  }
-
-  &:focus {
-    outline: none;
-  }
-
 }
