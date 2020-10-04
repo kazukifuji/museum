@@ -112,11 +112,11 @@
 
   ul:not(.blocks-gallery-grid), ol {
     line-height: 1.8;
-    margin: 3em 0;
+    margin: 3em auto;
     padding-left: 2em;
 
     ul, ol {
-      margin: 0 0 0 1em;
+      margin: 0 0 0 1em !important;
     }
   }
 
