@@ -1,0 +1,19 @@
+.error {
+  padding: 50px 0;
+  text-align: center;
+  
+  &__icon {
+    height: 220px;
+    fill: none;
+    stroke: gray;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    width: 220px;
+  }
+
+  &__text {
+    color: gray;
+    font-size: 1.5rem;
+  }
+}

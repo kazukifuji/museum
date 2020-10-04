@@ -1,0 +1,51 @@
+@import './base/normalize';
+@import './config';
+@import './mixin/**';
+
+body {
+  $base-font-size: 15px;
+
+  color: $black;
+  font-family: map-get($fonts, 'main');
+  font-size: $base-font-size;
+  line-height: 1.4;
+
+  @include media-query(sph) {
+    font-size: calc( #{$base-font-size} * 1.04 );
+  }
+
+  @include media-query(tc) {
+    font-size: calc( #{$base-font-size} * 1.072 );
+  }
+
+  @include media-query(pc) {
+    font-size: calc( #{$base-font-size} * 1.12 );
+  }
+}
+
+.wp-block {
+  max-width: 850px;
+}
+
+.block-editor-block-list__block {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.editor-post-title .editor-post-title__input {
+  font-size: 18px;
+
+  @include media-query(sph) {
+    font-size: 20px;
+  }
+
+  @include media-query(tc) {
+    font-size: 22px;
+  }
+
+  @include media-query(pc) {
+    font-size: 24px;
+  }
+}
+
+@include post-content();

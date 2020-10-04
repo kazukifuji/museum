@@ -1,0 +1,36 @@
+.wrapper {
+  margin: auto;
+  padding-right: 5vw;
+  padding-left: 5vw;
+  max-width: 850px;
+
+  &.-no-side-space {
+    &:not(.-sp):not(.-tc):not(.-pc) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    &.-sp {
+      @include media-query-below(sph) {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+
+    &.-tc {
+      @include media-query(sph) {
+        @include media-query-below(tc) {
+          padding-right: 0;
+          padding-left: 0;
+        }
+      }
+    }
+    
+    &.-pc {
+      @include media-query(pc) {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+  }
+}

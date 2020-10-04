@@ -1,0 +1,276 @@
+//投稿内容のスタイルを出力
+@mixin post-content() {
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 5em !important;
+    margin-bottom: 2em !important;
+  }
+
+  h1, h2 {
+    font-size: 18px;
+
+    @include media-query(sph) {
+      font-size: 20px;
+    }
+
+    @include media-query(tc) {
+      font-size: 22px;
+    }
+  
+    @include media-query(pc) {
+      font-size: 24px;
+    }
+  }
+
+  h3 {
+    border-left: 4px solid $black;
+    font-size: 16px;
+    padding: 8px 0 8px 8px;
+
+    @include media-query(sph) {
+      font-size: 18px;
+    }
+
+    @include media-query(tc) {
+      font-size: 20px;
+    }
+  
+    @include media-query(pc) {
+      font-size: 22px;
+    }
+  }
+
+  h4 {
+    background: $gray;
+    font-size: 15px;
+    padding: 10px 8px;
+
+    @include media-query(sph) {
+      font-size: 17px;
+    }
+
+    @include media-query(tc) {
+      font-size: 19px;
+    }
+  
+    @include media-query(pc) {
+      font-size: 21px;
+    }
+  }
+
+  h5 {
+    border-bottom: 2px dashed $gray;
+    padding-bottom: 4px;
+  }
+
+  h5, h6 {
+    font-size: 14px;
+    padding-left: 8px;
+
+    @include media-query(sph) {
+      font-size: 16px;
+    }
+
+    @include media-query(tc) {
+      font-size: 18px;
+    }
+  
+    @include media-query(pc) {
+      font-size: 20px;
+    }
+  }
+
+  p {
+    margin: 3em 0;
+  }
+
+  a:not(.wp-block-button__link):not(.wp-block-file__button) {
+    color: #08F;
+    text-decoration: underline;
+  }
+
+  figcaption {
+    color: gray;
+    font-size: 12px;
+    text-align: center;
+
+    @include media-query(tc) {
+      font-size: 13px;
+    }
+  
+    @include media-query(pc) {
+      font-size: 14px;
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+
+    ul {
+      list-style-type: circle;
+    }
+  }
+
+  ul:not(.blocks-gallery-grid), ol {
+    line-height: 1.8;
+    margin: 3em auto;
+    padding-left: 2em;
+
+    ul, ol {
+      margin: 0 0 0 1em !important;
+    }
+  }
+
+  .alignleft {
+    float: left;
+  }
+
+  .alignright {
+    float: right;
+  }
+
+  .wp-block-quote {
+    border-left: 4px solid $gray;
+    margin: 3em 0;
+    padding-left: 1em; 
+
+    &__citation, cite {
+      color: inherit;
+      font-size: inherit;
+      margin-top: 0;
+      position: relative;
+      font-style: normal;
+    }
+  }
+
+  .wp-block-preformatted {
+    overflow-x: scroll;
+    white-space: pre !important;
+  }
+
+  .wp-block-image {
+    margin: 3em auto;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .wp-block-audio {
+    margin: 3em auto;
+  }
+
+  .wp-block-embed  {
+    margin: 3em auto;
+  }
+
+  .wp-block-table {
+    margin: 3em auto;
+
+    table {
+      border-spacing: initial;
+    }
+
+    thead {
+      background: $gray;
+      border: none;
+    }
+
+    tr {
+      border-bottom: $gray;
+    }
+
+    td, th {
+      padding: 1em;
+      border: none;
+      word-break: normal;
+    }
+  }
+
+  .wp-block-gallery {
+    margin: 3em auto;
+
+    .blocks-gallery-grid {
+      .blocks-gallery-item {
+        margin: 0;
+
+        &__caption {
+          box-sizing: border-box;
+          overflow-x: hidden;
+        }
+      }
+    }
+  }
+
+  .wp-block-pullquote {
+    border-top: 4px solid $black;
+    border-bottom: 4px solid $black;
+    color: $black;
+    margin: 3em auto;
+
+    blockquote {
+      margin: 1em;
+
+      p {
+        font-size: 28px !important;
+        line-height: 1.6;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+      
+    &__citation, cite {
+      color: inherit;
+      font-size: inherit;
+      margin-top: 0;
+      position: relative;
+      font-style: normal;
+    }
+  }
+
+  .wp-block-verse {
+    font-family: inherit;
+    margin: 3em auto;
+    padding: 1em;
+    white-space: pre-wrap;
+  }
+
+  .wp-block-cover {
+    box-sizing: border-box;
+    margin: 3em auto;
+
+    &__inner-container {
+      p {
+        white-space: pre-wrap;
+      }
+    }
+  }
+
+  .wp-block-file {
+    margin: 3em auto;
+  }
+
+  .wp-block-media-text {
+    margin: 3em auto;
+
+    &__media {
+      img {
+        height: 100%;
+        vertical-align: middle;
+        width: 100%;
+      }
+    }
+  }
+
+  .wp-block-buttons {
+    margin: 3em auto;
+
+    .wp-block-button {
+      margin-top: 3em;
+      margin-bottom: 3em;
+    }
+  }
+  
+}
