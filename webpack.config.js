@@ -1,7 +1,7 @@
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   devtool: 'source-map',
   entry: './src/js/index.js',
   output: {
@@ -24,7 +24,7 @@ module.exports = {
                 {
                   useBuiltIns: 'usage',
                   corejs: 3,
-                  debug: true
+                  debug: false
                 }
               ]
             ]

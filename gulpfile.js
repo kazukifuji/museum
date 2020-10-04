@@ -1,6 +1,4 @@
-const browserSync = require('browser-sync'),
-      gulp = require('gulp'),
-      gulpConnectPHP = require('gulp-connect-php'),
+const gulp = require('gulp'),
       gulpRename = require('gulp-rename'),
       gulpSass = require('gulp-sass'),
       gulpSassGlob = require('gulp-sass-glob'),
@@ -10,36 +8,14 @@ const browserSync = require('browser-sync'),
 
 const tasks = {
   watch: function(done) {
-    gulpConnectPHP.server(
-      /*--------------
-      各自環境に設定
-      ---------------*/
-      {
-        port: '',
-        hostname: '192.168.1.10/test-wp',
-        base: '/var/www/html/test-wp',
-      },
-      function() {
-        browserSync.init({
-          proxy: '192.168.1.10/test-wp',
-          port: '8080',
-          host: '192.168.1.10',
-        });
-      }
-    );
-
     //sass, editorStyle
     gulp.watch('./src/sass/**/*.scss')
         .on( 'change', gulp.series(
-            gulp.parallel( tasks.sass, tasks.editorStyle ),
-            tasks.browserReload
+            gulp.parallel( tasks.sass, tasks.editorStyle )
         ) );
     //js
     gulp.watch('./src/js/**/*.js')
-        .on( 'change', gulp.series(tasks.js, tasks.browserReload) );
-    //php
-    gulp.watch('./**/*.php')
-        .on('change', gulp.series(tasks.browserReload) );
+        .on( 'change', gulp.series( tasks.js ) );
 
     done();
   },
@@ -73,12 +49,6 @@ const tasks = {
       .pipe( gulp.dest('./dist/js') )
     );
   },
-
-  browserReload: function(done) {
-    browserSync.reload();
-
-    done();
-  },
 };
 
 //リソースからファイルを出力
@@ -86,6 +56,3 @@ exports.default = gulp.parallel( tasks.sass, tasks.editorStyle, tasks.js );
 
 //監視
 exports.watch = tasks.watch;
-
-//PHPサーバーを閉じる
-exports.closeServer = gulpConnectPHP.closeServer;
