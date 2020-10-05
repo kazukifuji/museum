@@ -530,13 +530,15 @@ a {
   border-radius: 3px;
   color: white;
   cursor: pointer;
+  outline: none;
   text-align: center;
   transition: background 0.2s linear, color 0.2s linear;
   user-select: none;
 }
 
 [data-whatinput="mouse"] .comments .comment-list .comment-list-items .comment .comment-content .comment-foot .comment-reply .comment-reply-link:hover,
-[data-whatinput="keyboard"] .comments .comment-list .comment-list-items .comment .comment-content .comment-foot .comment-reply .comment-reply-link:hover {
+[data-whatinput="keyboard"] .comments .comment-list .comment-list-items .comment .comment-content .comment-foot .comment-reply .comment-reply-link:hover,
+[data-whatinput="keyboard"] .comments .comment-list .comment-list-items .comment .comment-content .comment-foot .comment-reply .comment-reply-link:focus {
   background: none;
   color: #333;
 }
@@ -968,6 +970,58 @@ a {
   padding-bottom: 0;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 5em 0 3em;
+}
+
+.pagination .page-numbers,
+.pagination .post-page-numbers {
+  font-size: 1.3rem;
+  padding: 4px 10px;
+  background: #333;
+  border: 1px solid #333;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  transition: background 0.2s linear, color 0.2s linear;
+  user-select: none;
+  display: block;
+  margin: 0 4px;
+}
+
+[data-whatinput="mouse"] .pagination .page-numbers:hover,
+[data-whatinput="keyboard"] .pagination .page-numbers:hover,
+[data-whatinput="keyboard"] .pagination .page-numbers:focus, [data-whatinput="mouse"]
+.pagination .post-page-numbers:hover,
+[data-whatinput="keyboard"]
+.pagination .post-page-numbers:hover,
+[data-whatinput="keyboard"]
+.pagination .post-page-numbers:focus {
+  background: none;
+  color: #333;
+}
+
+.pagination .page-numbers.current,
+.pagination .post-page-numbers.current {
+  background: none;
+  border: 1px solid gray;
+  color: gray;
+  pointer-events: none;
+}
+
+.pagination .page-numbers.dots,
+.pagination .post-page-numbers.dots {
+  background: none;
+  border: none;
+  color: inherit;
+  font-weight: bold;
+  pointer-events: none;
+}
+
 .post-item {
   width: 100%;
 }
@@ -1379,7 +1433,7 @@ a {
   margin: 3em 0;
 }
 
-.post-single__content a:not(.wp-block-button__link):not(.wp-block-file__button) {
+.post-single__content a:not(.post-page-numbers):not(.wp-block-button__link):not(.wp-block-file__button) {
   color: #08F;
   text-decoration: underline;
 }
