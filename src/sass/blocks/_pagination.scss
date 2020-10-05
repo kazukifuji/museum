@@ -1,0 +1,28 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 5em 0 3em;
+
+  .page-numbers,
+  .post-page-numbers {
+    @include button-2(small);
+
+    display: block;
+    margin: 0 4px;
+
+    &.current {
+      background: none;
+      border: 1px solid gray;
+      color: gray;
+      pointer-events: none;
+    }
+
+    &.dots {
+      background: none;
+      border: none;
+      color: inherit;
+      font-weight: bold;
+      pointer-events: none;
+    }
+  }
+}
