@@ -423,6 +423,7 @@ a {
   border: none;
   color: #333;
   cursor: pointer;
+  outline: none;
   overflow: hidden;
   position: relative;
   text-align: center;
@@ -460,12 +461,12 @@ a {
 }
 
 [data-whatinput="mouse"] .comments .comment-respond .comment-form .form-submit .submit:hover,
-[data-whatinput="keyboard"] .comments .comment-respond .comment-form .form-submit .submit:hover {
+[data-whatinput="keyboard"] .comments .comment-respond .comment-form .form-submit .submit:hover, .comments .comment-respond .comment-form .form-submit .submit:focus {
   color: white;
 }
 
 [data-whatinput="mouse"] .comments .comment-respond .comment-form .form-submit .submit:hover::before,
-[data-whatinput="keyboard"] .comments .comment-respond .comment-form .form-submit .submit:hover::before {
+[data-whatinput="keyboard"] .comments .comment-respond .comment-form .form-submit .submit:hover::before, .comments .comment-respond .comment-form .form-submit .submit:focus::before {
   transform: translate(-50%, -50%) scale(1);
 }
 
@@ -536,9 +537,7 @@ a {
   user-select: none;
 }
 
-[data-whatinput="mouse"] .comments .comment-list .comment-list-items .comment .comment-content .comment-foot .comment-reply .comment-reply-link:hover,
-[data-whatinput="keyboard"] .comments .comment-list .comment-list-items .comment .comment-content .comment-foot .comment-reply .comment-reply-link:hover,
-[data-whatinput="keyboard"] .comments .comment-list .comment-list-items .comment .comment-content .comment-foot .comment-reply .comment-reply-link:focus {
+.comments .comment-list .comment-list-items .comment .comment-content .comment-foot .comment-reply .comment-reply-link:hover, .comments .comment-list .comment-list-items .comment .comment-content .comment-foot .comment-reply .comment-reply-link:focus {
   background: none;
   color: #333;
 }
@@ -995,13 +994,8 @@ a {
   white-space: nowrap;
 }
 
-[data-whatinput="mouse"] .pagination .page-numbers:hover,
-[data-whatinput="keyboard"] .pagination .page-numbers:hover,
-[data-whatinput="keyboard"] .pagination .page-numbers:focus, [data-whatinput="mouse"]
+.pagination .page-numbers:hover, .pagination .page-numbers:focus,
 .pagination .post-page-numbers:hover,
-[data-whatinput="keyboard"]
-.pagination .post-page-numbers:hover,
-[data-whatinput="keyboard"]
 .pagination .post-page-numbers:focus {
   background: none;
   color: #333;
@@ -1156,6 +1150,7 @@ a {
   border: none;
   color: #333;
   cursor: pointer;
+  outline: none;
   overflow: hidden;
   position: relative;
   text-align: center;
@@ -1193,12 +1188,12 @@ a {
 }
 
 [data-whatinput="mouse"] .post-list__show-more-button:hover,
-[data-whatinput="keyboard"] .post-list__show-more-button:hover {
+[data-whatinput="keyboard"] .post-list__show-more-button:hover, .post-list__show-more-button:focus {
   color: white;
 }
 
 [data-whatinput="mouse"] .post-list__show-more-button:hover::before,
-[data-whatinput="keyboard"] .post-list__show-more-button:hover::before {
+[data-whatinput="keyboard"] .post-list__show-more-button:hover::before, .post-list__show-more-button:focus::before {
   transform: translate(-50%, -50%) scale(1);
 }
 
