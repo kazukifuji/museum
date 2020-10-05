@@ -972,6 +972,7 @@ a {
 
 .pagination {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin: 5em 0 3em;
 }
@@ -990,7 +991,8 @@ a {
   transition: background 0.2s linear, color 0.2s linear;
   user-select: none;
   display: block;
-  margin: 0 4px;
+  margin: 4px;
+  white-space: nowrap;
 }
 
 [data-whatinput="mouse"] .pagination .page-numbers:hover,

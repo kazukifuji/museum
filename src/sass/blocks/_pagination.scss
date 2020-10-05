@@ -1,5 +1,6 @@
 .pagination {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin: 5em 0 3em;
 
@@ -8,7 +9,8 @@
     @include button-2(small);
 
     display: block;
-    margin: 0 4px;
+    margin: 4px;
+    white-space: nowrap;
 
     &.current {
       background: none;
