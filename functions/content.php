@@ -1,21 +1,19 @@
 <?php
-//コンテンツ部分の関数
-
-//term_descriptionからpタグを削除
+//term_description()からpタグを削除
 remove_filter( 'term_description', 'wpautop' );
 
 
-//メイクエリの制御
-add_action( 'pre_get_posts', function($query) {
+//テーマから投稿の先頭固定表示機能を無効化
+add_action( 'pre_get_posts', 'disable_post_top_display' );
+function disable_post_top_display( $query ) {
   if ( is_admin() || !$query->is_main_query() ) return;
-
-  //投稿の先頭固定表示設定を反映させない
   $query->set( 'ignore_sticky_posts', true );
-} );
+}
 
 
-//the_archive_title()で出力されるテキストをカスタマイズ
-add_filter( 'get_the_archive_title', function($title) {
+//アーカイブタイトルをカスタマイズ
+add_filter( 'get_the_archive_title', 'museum_archive_title' );
+function museum_archive_title( $title ) {
   //ホームページ
   if ( is_home() || is_front_page() ) {
     $title = '最近の投稿';
@@ -26,7 +24,6 @@ add_filter( 'get_the_archive_title', function($title) {
     
   //日時アーカイブ
   } else if ( is_date() ) {
-
     //年別
     if ( is_year() ) {
       $title = get_the_time('Y年');
@@ -48,17 +45,19 @@ add_filter( 'get_the_archive_title', function($title) {
   }
 
   return $title;
-} );
+}
 
 
 //パスワード保護ページの記事タイトルの「保護中：」の文言を削除
-add_filter( 'protected_title_format', function($title) {
-  return '%s';
-} );
+add_filter( 'protected_title_format', 'remove_protected_text' );
+function remove_protected_text( $title ) {
+  return '%s';;
+}
 
 
 //パスワード保護ページの内容をカスタマイズ
-add_filter( 'the_password_form', function() {
+add_filter( 'the_password_form', 'museum_password_form' );
+function museum_password_form() {
   ?>
 
   <form class="post-password-form" action="<?php echo esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ); ?>" method="post">
@@ -71,9 +70,9 @@ add_filter( 'the_password_form', function() {
       <input class="post-password-form__submit" type="submit" name="Submit" value="<?php echo esc_attr_x( 'Enter', 'post password form' ); ?>">
     </div><!--.post-password-form__flex-container-->
   </form>
-    
+
   <?php
-} );
+}
 
 
 //投稿リストの投稿アイテムを出力
