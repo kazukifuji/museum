@@ -15,6 +15,8 @@
 ＊ウィジェット関連
 
 ＊ナビゲーションメニュー関連
+-カスタムナビゲーションメニューを登録
+-メニューのアイテム要素のidを削除
 
 ＊コメント欄関連
 -コメントのオートリンク機能を無効化
@@ -120,6 +122,19 @@ function museum_enqueue_scripts() {
 ナビゲーションメニュー関連
 
 -------------------------*/
+//カスタムナビゲーションメニューを登録
+add_action( 'after_setup_theme', 'museum_nav_menu' );
+function museum_nav_menu() {
+  register_nav_menu( 'sidebar', 'サイドバー' );
+}
+
+
+//メニューのアイテム要素のidを削除
+add_filter( 'nav_menu_item_id', 'remove_nav_menu_item_id' );
+function remove_nav_menu_item_id( $id ) {
+  $id = null;
+  return $id;
+}
 
 
 
@@ -411,5 +426,4 @@ function custom_list_comments( $comment, $args, $depth ) {
   <?php
 }
 
-locate_template('./functions/nav-menu.php', true);  //ナビゲーションメニューの設定
 locate_template('./functions/widgets.php', true);   //ウィジェットの設定
