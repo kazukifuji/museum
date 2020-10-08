@@ -9,6 +9,8 @@
 -テーマのcontent_widthを設定
 
 ＊css, jsファイルの読み込み
+-cssファイルの読み込み
+-jsファイルの読み込み
 
 ＊ウィジェット関連
 
@@ -87,6 +89,21 @@ function museum_content_width() {
 css, jsファイルの読み込み
 
 -------------------------*/
+//cssファイルの読み込み
+add_action( 'wp_enqueue_scripts', 'museum_enqueue_styles' );
+function museum_enqueue_styles() {
+  wp_enqueue_style( 'style', get_template_directory_uri() . '/dist/css/style.css' );
+}
+
+
+//jsファイルの読み込み
+add_action( 'wp_enqueue_scripts', 'museum_enqueue_scripts' );
+function museum_enqueue_scripts() {
+  wp_enqueue_script( 'script', get_template_directory_uri() . '/dist/js/script.js', [], false, true );
+
+  //wp-includes/js/comment-reply.js
+  if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
+}
 
 
 
@@ -396,4 +413,3 @@ function custom_list_comments( $comment, $args, $depth ) {
 
 locate_template('./functions/nav-menu.php', true);  //ナビゲーションメニューの設定
 locate_template('./functions/widgets.php', true);   //ウィジェットの設定
-locate_template('./functions/scripts.php', true);   //外部css, jsファイルの読み込み
