@@ -19,16 +19,19 @@
             <div class="post-single__body">
 
               <header class="post-single__header">
-                <div class="post-single__date">
-                  <span class="post-single__date-icon">
-                    <svg class="post-single__date-icon-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <polyline points="12 6 12 12 16 14"></polyline>
-                    </svg>
-                  </span>
 
-                  <time class="post-single__date-value"><?php echo esc_html( get_the_time( get_option('date_format') ) ); ?></time>
-                </div><!--.post-single__date-->
+                <?php if ( is_single() ) : ?>
+                  <div class="post-single__date">
+                    <span class="post-single__date-icon">
+                      <svg class="post-single__date-icon-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                    </span>
+
+                    <time class="post-single__date-value"><?php echo esc_html( get_the_time( get_option('date_format') ) ); ?></time>
+                  </div><!--.post-single__date-->
+                <?php endif; ?>
 
                 <?php the_title( '<h1 class="post-single__title">', '</h1>' ); ?>
               </header>
