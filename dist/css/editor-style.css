@@ -505,11 +505,6 @@ p {
   margin: 3em 0;
 }
 
-a:not(.post-page-numbers):not(.wp-block-button__link):not(.wp-block-file__button) {
-  color: #08F;
-  text-decoration: underline;
-}
-
 figcaption {
   color: gray;
   font-size: 12px;

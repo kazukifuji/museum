@@ -1,6 +1,10 @@
 .widget {
   font-size: 1.3rem;
 
+  a {
+    color: $black;
+  }
+
   ul {
     list-style: none;
     margin: 0;
