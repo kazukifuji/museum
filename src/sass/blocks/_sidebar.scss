@@ -60,7 +60,7 @@
       padding: 50px 30px;
     }
 
-    & > * + * {
+    & > * + *:not(.menu-all-pages-container) {
       margin-top: 40px;
     }
   }
@@ -71,7 +71,12 @@
   }
 
   &__logo {
-    margin: 0;
+    display: none;
+    margin: 0 0 40px 0;
     text-align: center;
+
+    @include media-query(pc) {
+      display: block;
+    }
   }
 }
