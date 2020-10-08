@@ -1,7 +1,7 @@
 <?php
-//テーマの初期設定
-add_action( 'after_setup_theme', function() {
-  //サポートを登録
+//テーマサポートを登録
+add_action( 'after_setup_theme', 'museum_theme_supports' );
+function museum_theme_supports() {
   add_theme_support( 'editor-styles' );
   add_editor_style( '/dist/css/editor-style.css' );
   add_theme_support( 'title-tag' );
@@ -19,17 +19,23 @@ add_action( 'after_setup_theme', function() {
     'uploads'            => false,
     'random-default'     => false,
   ] );
+}
 
-  //デフォルトのヘッダー画像を登録
+
+//デフォルトのヘッダー画像を登録
+add_action( 'after_serup_theme', 'museum_default_headers' );
+function museum_default_headers() {
   register_default_headers([
     'default-image' => [
       'url' => esc_url( get_template_directory_uri() . '/assets/images/header.jpg' ),
       'thumbnail_url' => esc_url( get_template_directory_uri() . '/assets/images/header.jpg' ),
     ],
   ]);
-} );
+}
+
 
 //$content_widthを設定
-add_action( 'after_setup_theme', function() {
-  $GLOBALS['content_width'] = apply_filters( 'mytheme_content_width', 740 );
-}, 0 );
+add_action( 'after_setup_theme', 'museum_content_width', 0 );
+function museum_content_width() {
+  $GLOBALS['content_width'] = apply_filters( 'museum_content_width', 850 );
+}

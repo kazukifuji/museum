@@ -1,7 +1,7 @@
 <?php
-//ウィジェットの設定
-add_action( 'widgets_init', function() {
-  //サイドバー
+//ウィジェットを登録
+add_action( 'widgets_init', 'museum_widgets' );
+function museum_widgets() {
   register_sidebar([
     'name' => 'サイドバー',
     'id' => 'sidebar',
@@ -11,4 +11,4 @@ add_action( 'widgets_init', function() {
     'before_title' => '<h4 class="widgettitle">',
     'after_title' => '</h4>',
   ]);
-} );
+}
