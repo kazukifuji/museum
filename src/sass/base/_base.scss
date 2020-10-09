@@ -37,3 +37,11 @@ a {
 [data-whatinput="touch"] *:focus {
   outline: none;
 }
+
+//幅が600px以下の時、WordPressの管理バーの一がずれる不具合を修正
+@media screen and (max-width: 600px) {
+  #wpadminbar {
+    position: fixed !important;
+  }
+}
+  
