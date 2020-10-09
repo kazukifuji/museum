@@ -5,15 +5,24 @@
 
     .comment-reply-title {
       font-size: 1.6rem;
+
+      &::after {
+        clear: both;
+        content: '';
+        display: block;
+      }
       
       small {
+        float: right;
         font-weight: normal;
-        margin-left: 10px;
+
+        a {
+          @include button-2(small);
+        }
       }
     }
 
     .comment-form {
-  
       .comment-notes {
         color: gray;
       }
