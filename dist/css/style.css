@@ -403,9 +403,60 @@ a {
   font-size: 1.6rem;
 }
 
+.comments .comment-respond .comment-reply-title::after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
 .comments .comment-respond .comment-reply-title small {
+  float: right;
   font-weight: normal;
-  margin-left: 10px;
+}
+
+.comments .comment-respond .comment-reply-title small a {
+  font-size: 1.3rem;
+  padding: 4px 10px;
+  background: #333;
+  border: 1px solid #333;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  transition: background 0.2s linear, color 0.2s linear;
+  user-select: none;
+}
+
+.comments .comment-respond .comment-reply-title small a:hover, .comments .comment-respond .comment-reply-title small a:focus {
+  background: none;
+  color: #333;
+}
+
+.comments .comment-respond .comment-form .logged-in-as::after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+.comments .comment-respond .comment-form .logged-in-as .logout-link {
+  font-size: 1.3rem;
+  padding: 4px 10px;
+  background: #333;
+  border: 1px solid #333;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  transition: background 0.2s linear, color 0.2s linear;
+  user-select: none;
+  float: right;
+}
+
+.comments .comment-respond .comment-form .logged-in-as .logout-link:hover, .comments .comment-respond .comment-form .logged-in-as .logout-link:focus {
+  background: none;
+  color: #333;
 }
 
 .comments .comment-respond .comment-form .comment-notes {
@@ -516,16 +567,18 @@ a {
 }
 
 .comments .comment-list .comment-list-items .comment .comment-content .comment-foot {
-  align-items: flex-end;
   color: gray;
-  display: flex;
-  justify-content: space-between;
   font-size: 1.2rem;
 }
 
+.comments .comment-list .comment-list-items .comment .comment-content .comment-foot::after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
 .comments .comment-list .comment-list-items .comment .comment-content .comment-foot .comment-reply {
-  position: relative;
-  bottom: 5px;
+  float: right;
 }
 
 .comments .comment-list .comment-list-items .comment .comment-content .comment-foot .comment-reply .comment-reply-link {

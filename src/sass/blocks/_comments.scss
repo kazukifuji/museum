@@ -5,15 +5,38 @@
 
     .comment-reply-title {
       font-size: 1.6rem;
+
+      &::after {
+        clear: both;
+        content: '';
+        display: block;
+      }
       
       small {
+        float: right;
         font-weight: normal;
-        margin-left: 10px;
+
+        a {
+          @include button-2(small);
+        }
       }
     }
 
     .comment-form {
-  
+      .logged-in-as {
+        &::after {
+          clear: both;
+          content: '';
+          display: block;
+        }
+        
+        .logout-link {
+          @include button-2(small);
+
+          float: right;
+        }
+      }
+
       .comment-notes {
         color: gray;
       }
@@ -85,15 +108,17 @@
           }
 
           .comment-foot {
-            align-items: flex-end;
             color: gray;
-            display: flex;
-            justify-content: space-between;
             font-size: 1.2rem;
+            
+            &::after {
+              clear: both;
+              content: '';
+              display: block;
+            }
 
             .comment-reply {
-              position: relative;
-              bottom: 5px;
+              float: right;
 
               .comment-reply-link {
                 @include button-2(small);
