@@ -541,16 +541,18 @@ a {
 }
 
 .comments .comment-list .comment-list-items .comment .comment-content .comment-foot {
-  align-items: flex-end;
   color: gray;
-  display: flex;
-  justify-content: space-between;
   font-size: 1.2rem;
 }
 
+.comments .comment-list .comment-list-items .comment .comment-content .comment-foot::after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
 .comments .comment-list .comment-list-items .comment .comment-content .comment-foot .comment-reply {
-  position: relative;
-  bottom: 5px;
+  float: right;
 }
 
 .comments .comment-list .comment-list-items .comment .comment-content .comment-foot .comment-reply .comment-reply-link {
