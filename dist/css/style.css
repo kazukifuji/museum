@@ -433,6 +433,32 @@ a {
   color: #333;
 }
 
+.comments .comment-respond .comment-form .logged-in-as::after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+.comments .comment-respond .comment-form .logged-in-as .logout-link {
+  font-size: 1.3rem;
+  padding: 4px 10px;
+  background: #333;
+  border: 1px solid #333;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  transition: background 0.2s linear, color 0.2s linear;
+  user-select: none;
+  float: right;
+}
+
+.comments .comment-respond .comment-form .logged-in-as .logout-link:hover, .comments .comment-respond .comment-form .logged-in-as .logout-link:focus {
+  background: none;
+  color: #333;
+}
+
 .comments .comment-respond .comment-form .comment-notes {
   color: gray;
 }

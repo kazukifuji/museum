@@ -23,6 +23,20 @@
     }
 
     .comment-form {
+      .logged-in-as {
+        &::after {
+          clear: both;
+          content: '';
+          display: block;
+        }
+        
+        .logout-link {
+          @include button-2(small);
+
+          float: right;
+        }
+      }
+
       .comment-notes {
         color: gray;
       }
