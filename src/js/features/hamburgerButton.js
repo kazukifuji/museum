@@ -12,6 +12,7 @@ export default () => {
   function active() {
     hamburgerButton.classList.add('-active');
     sidebar.classList.add('-open');
+    document.body.style.overflow = 'hidden';
     //リサイズイベントを追加
     window.addEventListener( 'resize', monitor );
   }
@@ -20,6 +21,7 @@ export default () => {
   function passive() {
     hamburgerButton.classList.remove('-active');
     sidebar.classList.remove('-open');
+    document.body.style.overflow = '';
     //リサイズイベントを削除
     window.removeEventListener( 'resize', monitor );
   }
