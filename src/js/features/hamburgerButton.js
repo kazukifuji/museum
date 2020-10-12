@@ -4,25 +4,29 @@ export default () => {
 
   //クリックイベント
   hamburgerButton.addEventListener( 'click', function() {
-    if ( this.classList.contains('-active') ) {
-      this.classList.remove('-active');
-      sidebar.classList.remove('-open');
-      //リサイズイベントを追加
-      window.addEventListener( 'resize', resize );
-    } else {
-      this.classList.add('-active');
-      sidebar.classList.add('-open');
-    }
+    if ( this.classList.contains('-active') )  passive();
+    else active();
   } );
 
-  //リサイズ
-  function resize() {
-    //画面の幅がPC幅を越えたらクラスを取り除く
-    if ( window.innerWidth >= 1024 ) {
-      hamburgerButton.classList.remove('-active');
-      sidebar.classList.remove('-open');
-      //リサイズイベントを削除
-      window.removeEventListener( 'resize', resize );
-    }
+  //アクティブ
+  function active() {
+    hamburgerButton.classList.add('-active');
+    sidebar.classList.add('-open');
+    //リサイズイベントを追加
+    window.addEventListener( 'resize', monitor );
+  }
+
+  //パッシブ
+  function passive() {
+    hamburgerButton.classList.remove('-active');
+    sidebar.classList.remove('-open');
+    //リサイズイベントを削除
+    window.removeEventListener( 'resize', monitor );
+  }
+
+  //監視
+  function monitor() {
+    //画面の幅がPC幅を越えたらパッシブ状態にする
+    if ( window.innerWidth >= 1024 ) passive();
   }
 }
