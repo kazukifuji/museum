@@ -9,13 +9,9 @@ const gulp = require('gulp'),
 const tasks = {
   watch: function(done) {
     //sass, editorStyle
-    gulp.watch('./src/sass/**/*.scss')
-        .on( 'change', gulp.series(
-            gulp.parallel( tasks.sass, tasks.editorStyle )
-        ) );
+    gulp.watch('./src/sass/**/*.scss', { events: 'change' }, gulp.parallel( tasks.sass, tasks.editorStyle ) );
     //js
-    gulp.watch('./src/js/**/*.js')
-        .on( 'change', gulp.series( tasks.js ) );
+    gulp.watch('./src/js/**/*.js', { events: 'change' }, tasks.js );
 
     done();
   },
