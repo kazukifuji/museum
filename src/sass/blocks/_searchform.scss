@@ -13,16 +13,13 @@
     flex: 1 1 80%;
     padding: 10px;
     width: 100%;
-
-    &:focus {
-      outline: none;
-    }
   }
 
   &__submit {
     background: $gray;
     border: none;
     cursor: pointer;
+    outline: none;
     padding: 0 20px;
     transition: background 0.2s linear;
 
@@ -38,11 +35,7 @@
       width: 10px;
     }
 
-    &:focus {
-      outline: none;
-    }
-
-    &:hover {
+    &:hover, &:focus {
       background: $black;
 
       .searchform__submit-icon {
