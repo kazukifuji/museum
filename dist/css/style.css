@@ -389,6 +389,11 @@ a {
   outline: none;
 }
 
+[data-whatinput="keyboard"] input[type="text"],
+[data-whatinput="keyboard"] textarea {
+  outline: none;
+}
+
 @media screen and (max-width: 600px) {
   #wpadminbar {
     position: fixed !important;
@@ -1867,14 +1872,11 @@ a {
   width: 100%;
 }
 
-.searchform__textbox:focus {
-  outline: none;
-}
-
 .searchform__submit {
   background: #EEE;
   border: none;
   cursor: pointer;
+  outline: none;
   padding: 0 20px;
   transition: background 0.2s linear;
 }
@@ -1891,15 +1893,11 @@ a {
   width: 10px;
 }
 
-.searchform__submit:focus {
-  outline: none;
-}
-
-.searchform__submit:hover {
+.searchform__submit:hover, .searchform__submit:focus {
   background: #333;
 }
 
-.searchform__submit:hover .searchform__submit-icon {
+.searchform__submit:hover .searchform__submit-icon, .searchform__submit:focus .searchform__submit-icon {
   stroke: white;
   transform: scale(1.9) rotate(360deg);
 }

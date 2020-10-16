@@ -169,6 +169,7 @@ function museum_comment_form_default( $args ) {
   $args['fields']['author'] = '<p class="comment-form-author"><label for="author">名前</label> ' .
                                 '<input id="author" name="author" type="text" value="名無しさん" size="30" maxlength="30">' .
                               '</p>';
+  $args['fields']['cookies'] = '<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"> <label for="wp-comment-cookies-consent">次回のコメントで使用するためブラウザーに自分の名前を保存する。</label></p>';
   $args['submit_button'] = '<button name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s">%4$s</button>';
   return $args;
 }
