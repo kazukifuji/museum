@@ -389,6 +389,11 @@ a {
   outline: none;
 }
 
+[data-whatinput="keyboard"] input[type="text"],
+[data-whatinput="keyboard"] textarea {
+  outline: none;
+}
+
 @media screen and (max-width: 600px) {
   #wpadminbar {
     position: fixed !important;
