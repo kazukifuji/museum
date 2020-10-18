@@ -61,7 +61,7 @@ function museum_theme_supports() {
     'header-text'        => false,
     'default-text-color' => 'FFF',
     'video'              => false,
-    'uploads'            => false,
+    'uploads'            => true,
     'random-default'     => false,
   ] );
 }
