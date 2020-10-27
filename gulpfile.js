@@ -1,17 +1,12 @@
 const gulp = require('gulp'),
       gulpRename = require('gulp-rename'),
       gulpSass = require('gulp-sass'),
-      gulpSassGlob = require('gulp-sass-glob'),
-      webpack = require('webpack'),
-      webpackConfig = require('./webpack.config'),
-      webpackStream = require('webpack-stream');
+      gulpSassGlob = require('gulp-sass-glob');
 
 const tasks = {
   watch: function(done) {
     //sass, editorStyle
     gulp.watch('./src/sass/**/*.scss', { events: 'change' }, gulp.parallel( tasks.sass, tasks.editorStyle ) );
-    //js
-    gulp.watch('./src/js/**/*.js', { events: 'change' }, tasks.js );
 
     done();
   },
@@ -38,17 +33,10 @@ const tasks = {
           .pipe( gulp.dest('./dist/css') )
     );
   },
-
-  js: function() {
-    return (
-      webpackStream(webpackConfig, webpack).on('error', function() { this.emit('end'); })
-      .pipe( gulp.dest('./dist/js') )
-    );
-  },
 };
 
 //リソースからファイルを出力
-exports.default = gulp.parallel( tasks.sass, tasks.editorStyle, tasks.js );
+exports.default = gulp.parallel( tasks.sass, tasks.editorStyle );
 
 //監視
 exports.watch = tasks.watch;
