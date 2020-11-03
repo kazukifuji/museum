@@ -1,7 +1,7 @@
 <div id="sidebar" class="sidebar">
   <div class="sidebar__inner">
+    
     <?php 
-
     echo '<h4 class="sidebar__logo">';
     get_template_part('template_parts/logo');
     echo '</h4>';
