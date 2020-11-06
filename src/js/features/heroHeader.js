@@ -1,9 +1,15 @@
-//ヒーローヘッダーの高さをビューポートの高さに設定
-export default () => {
-  const heroHeader = document.getElementById('heroHeader');
-  if (!heroHeader) return;
+export default {
+  //初期設定
+  init: function() {
+    //ヒーローヘッダー
+    this.element = document.getElementById('heroHeader');
+    //ヘッダー
+    this.headerElem = document.getElementById('header');
+  },
 
-  const header = document.getElementById('header');
-
-  heroHeader.style.height = window.innerHeight - header.offsetHeight + 'px';
+  //高さを設定
+  setHeight: function() {
+    if ( !this.element ) return;
+    this.element.style.height = window.innerHeight - this.headerElem.offsetHeight + 'px';
+  },
 }
