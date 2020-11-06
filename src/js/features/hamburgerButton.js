@@ -1,34 +1,40 @@
-export default () => {
-  const hamburgerButton = document.getElementById('hamburgerButton');
-  const sidebar = document.getElementById('sidebar');
+export default {
+  //初期設定
+  init: function() {
+    this.element = document.getElementById('hamburgerButton');
+    this.operateSidebarElem = document.getElementById('sidebar');
+  },
 
-  //クリックイベント
-  hamburgerButton.addEventListener( 'click', function() {
-    if ( this.classList.contains('-active') )  passive();
-    else active();
-  } );
+  //クリックイベントを追加
+  addClickEvent: function() {
+    //アクティブ
+    const active = () => {
+      this.element.classList.add('-active');
+      this.operateSidebarElem.classList.add('-open');
+      this.operateSidebarElem.classList.remove('-close');
+      //リサイズイベントを追加
+      window.addEventListener( 'resize', monitor );
+    };
 
-  //アクティブ
-  function active() {
-    hamburgerButton.classList.add('-active');
-    sidebar.classList.add('-open');
-    sidebar.classList.remove('-close');
-    //リサイズイベントを追加
-    window.addEventListener( 'resize', monitor );
-  }
+    //パッシブ
+    const passive = () => {
+      this.element.classList.remove('-active');
+      this.operateSidebarElem.classList.remove('-open');
+      this.operateSidebarElem.classList.add('-close');
+      //リサイズイベントを削除
+      window.removeEventListener( 'resize', monitor );
+    };
 
-  //パッシブ
-  function passive() {
-    hamburgerButton.classList.remove('-active');
-    sidebar.classList.remove('-open');
-    sidebar.classList.add('-close');
-    //リサイズイベントを削除
-    window.removeEventListener( 'resize', monitor );
-  }
+    //監視
+    const monitor = () => {
+      //画面の幅がPC幅を越えたらパッシブ状態にする
+      if ( window.innerWidth >= 1024 ) passive();
+    };
 
-  //監視
-  function monitor() {
-    //画面の幅がPC幅を越えたらパッシブ状態にする
-    if ( window.innerWidth >= 1024 ) passive();
-  }
+    //イベント追加
+    this.element.addEventListener( 'click', function() {
+      if ( this.classList.contains('-active') )  passive();
+      else active();
+    } );
+  },
 }
