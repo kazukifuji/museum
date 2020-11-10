@@ -95,7 +95,7 @@ export default {
       this.status.element.style.display = 'block';
       document.querySelector( this.status.selector + ' > .infinite-scroll-request' ).style.display = 'none';
       document.querySelector( this.status.selector + ' > .infinite-scroll-error' ).style.display = 'none';
-      this.navigation.element.style.display = 'none';
+      if ( this.navigation.element ) this.navigation.element.style.display = 'none';
     }
   }, 
 }
