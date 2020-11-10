@@ -9,7 +9,6 @@ export default {
   init: function() {
     //投稿リスト
     this.element = document.getElementById('postList');
-    console.dir(this.element);
     if ( !this.element ) return;
 
     //投稿コンテナー
