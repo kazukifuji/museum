@@ -16,11 +16,7 @@
       </h1><!--.main__heading-->
     </div><!--.wrapper-->
   <?php endif; ?>
-
-  <article>
   
-    <?php get_template_part('template_parts/post-list'); ?>
-
-  </article>
+  <?php get_template_part('template_parts/post-list'); ?>
 
 <?php get_footer(); ?>
