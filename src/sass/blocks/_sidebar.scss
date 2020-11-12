@@ -77,14 +77,4 @@
       margin-top: 40px;
     }
   }
-
-  &__logo {
-    display: none;
-    margin: 0 0 40px 0;
-    text-align: center;
-
-    @include media-query(pc) {
-      display: block;
-    }
-  }
 }
