@@ -14,6 +14,13 @@
         <?php the_archive_title(); ?>
 
       </h1><!--.main__heading-->
+
+      <?php if ( is_category() || is_tag() || is_tax() ) : ?>
+        <?php $desc_text = esc_html( get_queried_object()->description );
+        if ( $desc_text !== '' ) : ?>
+          <p class="main__description"><?php echo $desc_text; ?></p>
+        <?php endif; ?>
+      <?php endif; ?>
     </div><!--.wrapper-->
   <?php endif; ?>
   
