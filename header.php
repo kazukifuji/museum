@@ -9,17 +9,13 @@
     <?php wp_body_open(); ?>
 
     <header id="header" class="header">
-      <h4 class="header__logo">
-        <?php get_template_part( 'template_parts/logo' ); ?>
-      </h4>
+      <?php get_template_part( 'template_parts/logo' ); ?>
 
       <?php get_template_part( 'template_parts/hamburger-button' ); ?>
     </header>
-
-    <?php get_sidebar(); ?>
 
     <div class="content">
     
       <?php if ( is_home() || is_front_page() ) get_template_part( 'template_parts/hero-header' ); ?>
 
-      <div class="main">
+      <main class="main">

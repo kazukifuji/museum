@@ -294,7 +294,7 @@ function museum_password_form() {
 -------------------------*/
 //投稿リストの投稿アイテムを出力
 //※引数「$post_id」を指定しない場合、現在の投稿を取得。
-function the_post_list_item( $post_id = null ) {
+function the_post_list_item( $post_id = null, $h_tag = 'h2' ) {
   //投稿オブジェクトを取得
   $post_obj = get_post( $post_id );
   ?>
@@ -314,9 +314,9 @@ function the_post_list_item( $post_id = null ) {
         <?php $post_title = esc_html( get_the_title( $post_obj ) );
         if ( $post_title !== '' ) : ?>
           <div class="post-item__content-header">
-            <h2 class="post-item__content-title">
+            <<?=$h_tag?> class="post-item__content-title">
               <?php echo $post_title; ?>
-            </h2>
+            </<?=$h_tag?>>
           </div><!--post-item__content-header-->
         <?php endif; ?>
         
@@ -372,7 +372,7 @@ function the_post_list_item( $post_id = null ) {
 
 
 //'load_count'URLパラメータを元に、前のページの投稿リストの投稿アイテムを出力
-function the_prev_post_list_items() {
+function the_prev_post_list_items( $h_tag = 'h2' ) {
   global $wp_query;
 
   if ( !isset( $_GET['load_count'] ) ) return;
@@ -395,7 +395,7 @@ function the_prev_post_list_items() {
   if ( $query->have_posts() ) {
     while ( $query->have_posts() ) {
       $query->the_post();
-      the_post_list_item( $query->post->ID );
+      the_post_list_item( $query->post->ID, $h_tag );
     }
     wp_reset_postdata();
   }
