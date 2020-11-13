@@ -22,6 +22,11 @@
         <?php endif; ?>
       <?php endif; ?>
     </div><!--.wrapper-->
+    
+  <?php else : ?>
+    <h2 class="main__heading-1">
+      投稿一覧
+    </h2>
   <?php endif; ?>
   
   <?php get_template_part('template_parts/post-list'); ?>
