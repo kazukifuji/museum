@@ -1,5 +1,3 @@
-
-
 <?php if ( have_posts() ) : ?>
   <article id="postList" class="post-list">
 
@@ -7,11 +5,13 @@
 
       <div class="post-list__posts-sizer"></div>
 
-      <?php the_prev_post_list_items(); ?>
+      <?php $h_tag = is_home() || is_front_page() ? 'h3' : 'h2'; ?>
+
+      <?php the_prev_post_list_items( $h_tag ); ?>
 
       <?php while ( have_posts() ) : the_post(); ?>
         
-        <?php the_post_list_item( $post->ID ); ?>
+        <?php the_post_list_item( $post->ID, $h_tag ); ?>
 
       <?php endwhile; ?>
 
