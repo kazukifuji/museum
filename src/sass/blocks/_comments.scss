@@ -32,8 +32,6 @@
         }
         
         .logout-link {
-          @include button-2(small);
-
           float: right;
         }
       }
