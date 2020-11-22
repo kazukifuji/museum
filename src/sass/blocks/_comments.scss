@@ -13,12 +13,11 @@
       }
       
       small {
+        float: right;
         font-weight: normal;
-        margin-left: 1em;
 
         a {
-          border-bottom: 1px solid $black;
-          color: black;
+          @include button-2(small);
         }
       }
     }
@@ -32,6 +31,8 @@
         }
         
         .logout-link {
+          @include button-2(small);
+
           float: right;
         }
       }
@@ -51,6 +52,8 @@
 
       .form-submit {
         .submit {
+          @include button-1;
+
           display: block;
           margin: auto;
         }
@@ -116,6 +119,10 @@
 
             .comment-reply {
               float: right;
+
+              .comment-reply-link {
+                @include button-2(small);
+              }
             }
           }
 
