@@ -116,10 +116,6 @@
 
             .comment-reply {
               float: right;
-
-              .comment-reply-link {
-                @include button-2(small);
-              }
             }
           }
 

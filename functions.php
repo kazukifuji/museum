@@ -25,6 +25,7 @@
 -コメントフォームのコメントフィールドを一番下に移動
 -コメントでタグの使用を無効にする
 -名前フィールドの初期値に「名無しさん」を設定
+-各コメントの返信ボタンをカスタマイズ
 
 ＊その他カスタマイズ  
 -term_description()からpタグを削除
@@ -196,6 +197,7 @@ function invalidate_comment_tags( $comment ) {
   return $comment;
 }
 
+
 //名前フィールドの初期値に「名無しさん」を設定
 add_filter( 'get_comment_author', 'name_field_initial_value' );
 function name_field_initial_value( $author ) {
@@ -203,6 +205,13 @@ function name_field_initial_value( $author ) {
   return $author;
 }
 
+
+//各コメントの返信ボタンをカスタマイズ
+add_filter( 'comment_reply_link', 'museum_comment_reply_link' );
+function museum_comment_reply_link( $html ) {
+  $html = preg_replace( '~<a(.+?)class=\'(.+?)\'(.+?)~', '<a\1class=\'\2 button-2 -small\'\3', $html );
+  return $html;
+}
 
 
 /*-------------------------
@@ -425,15 +434,17 @@ function custom_list_comments( $comment, $args, $depth ) {
           <?php comment_time(); ?>
         </span>
 
-        <div class="comment-reply">
-          <?php
-          comment_reply_link( array_merge( $args, [
-            'reply_text' => '返信',
-            'depth'      => $depth,
-            'max_depth'  => $args['max_depth'],
-          ] ) );
-          ?>
-        </div>
+        <?php if ( $depth < $args['max_depth'] ) : ?>
+          <div class="comment-reply">
+            <?php
+            comment_reply_link( array_merge( $args, [
+              'reply_text' => '返信',
+              'depth'      => $depth,
+              'max_depth'  => $args['max_depth'],
+            ] ) );
+            ?>
+          </div>
+        <?php endif; ?>
       </div>
     
     </article>
