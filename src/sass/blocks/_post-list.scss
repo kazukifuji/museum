@@ -14,9 +14,7 @@
     }
   }
 
-  &__show-more-button {
-    @include button-1('large');
-
+  &__see-more-button {
     display: block;
     margin: 20px auto;
 
