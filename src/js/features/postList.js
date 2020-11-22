@@ -26,9 +26,9 @@ export default {
     };
 
     //投稿追加表示ボタン
-    this.seeMoreButton = {
-      selector: '.post-list__see-more-button',
-      element: this.element.querySelector('.post-list__see-more-button'),
+    this.showMoreButton = {
+      selector: '.post-list__show-more-button',
+      element: this.element.querySelector('.post-list__show-more-button'),
     };
 
     //投稿リストのステータス要素
@@ -78,7 +78,7 @@ export default {
         outlayer: this.masonry,
         path: this.nextPageLink.selector,
         append: '.post-item',
-        button: this.seeMoreButton.selector,
+        button: this.showMoreButton.selector,
         scrollThreshold: false,
         status: this.status.selector,
         hideNav: this.navigation.selector,
@@ -91,7 +91,7 @@ export default {
       } );
 
     } else {
-      this.seeMoreButton.element.style.display = 'none';
+      this.showMoreButton.element.style.display = 'none';
       this.status.element.style.display = 'block';
       document.querySelector( this.status.selector + ' > .infinite-scroll-request' ).style.display = 'none';
       document.querySelector( this.status.selector + ' > .infinite-scroll-error' ).style.display = 'none';

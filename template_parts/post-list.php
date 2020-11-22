@@ -17,7 +17,7 @@
 
     </div><!--.post-list__posts-->
 
-    <button class="post-list__see-more-button button-1 -large" type="button">SEE MORE</button>
+    <button class="post-list__show-more-button" type="button">SEE MORE</button>
 
     <div class="post-list__page-load-status">
       <div class="infinite-scroll-request">

@@ -7,7 +7,7 @@
     'title_reply'           => 'コメント',
     'cancel_reply_link'     => 'キャンセル',
     'label_submit'          => '送信',
-    'logged_in_as'          => '<p class="logged-in-as">' . sprintf( '<a href="%1$s">%2$s</a>としてログイン中です。<a class="logout-link button-2 -small" href="%3$s" title="Log out of this account">ログアウト</a>', admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p>'
+    'logged_in_as'          => '<p class="logged-in-as">' . sprintf( '<a href="%1$s">%2$s</a>としてログイン中です。<a class="logout-link" href="%3$s" title="Log out of this account">ログアウト</a>', admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p>'
   ]); ?>
 
   <?php if ( have_comments() ) : ?>
