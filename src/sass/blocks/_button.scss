@@ -1,0 +1,15 @@
+.button {
+  //タイプ1
+  &-1 {
+    &.-small { @include button-1( small ) }
+    &.-normal { @include button-1( normal ) }
+    &.-large { @include button-1( large ) }
+  }
+
+  //タイプ2
+  &-2 {
+    &.-small { @include button-2( small ) }
+    &.-normal { @include button-2( normal ) }
+    &.-large { @include button-2( large ) }
+  }
+}
