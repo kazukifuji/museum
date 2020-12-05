@@ -1,15 +1,12 @@
-export default {
-  //初期設定
-  init: function() {
-    //ヒーローヘッダー
-    this.element = document.getElementById('heroHeader');
-    //ヘッダー
-    this.headerElem = document.getElementById('header');
-  },
+//ヒーローヘッダー
+const heroHeader = document.getElementById('heroHeader');
+//ヘッダー
+const header = document.getElementById('header');
 
-  //高さを設定
-  setHeight: function() {
-    if ( !this.element ) return;
-    this.element.style.height = window.innerHeight - this.headerElem.offsetHeight + 'px';
-  },
+export default {
+  //ヒーローヘッダーの高さを設定
+  setHeight: () => {
+    if ( !heroHeader ) return;
+    heroHeader.style.height = window.innerHeight - header.offsetHeight + 'px';
+  }
 }

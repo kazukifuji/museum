@@ -8,9 +8,6 @@ import postList from './features/postList';
 //ハンバーガーボタンにサイドバー開閉機能を実装
 hamburgerButton.implementFeature();
 
-//ヒーローヘッダーの初期設定
-heroHeader.init();
-
 //投稿リストの初期設定
 postList.init();
 
