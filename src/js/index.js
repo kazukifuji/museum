@@ -8,9 +8,6 @@ import postList from './features/postList';
 //ハンバーガーボタンにサイドバー開閉機能を実装
 hamburgerButton.implementFeature();
 
-//投稿リストの初期設定
-postList.init();
-
 window.addEventListener( 'load', () => {
   //ヒーローヘッダーの高さを設定
   heroHeader.setHeight();
