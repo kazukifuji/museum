@@ -5,19 +5,10 @@ import hamburgerButton from './features/hamburgerButton';
 import heroHeader from './features/heroHeader';
 import postList from './features/postList';
 
-//ハンバーガーボタンの初期設定
-hamburgerButton.init();
-
-//ヒーローヘッダーの初期設定
-heroHeader.init();
-
-//投稿リストの初期設定
-postList.init();
+//ハンバーガーボタンにサイドバー開閉機能を実装
+hamburgerButton.implementFeature();
 
 window.addEventListener( 'load', () => {
-  //ハンバーガーボタンにクリックイベントを追加。
-  hamburgerButton.addClickEvent();
-
   //ヒーローヘッダーの高さを設定
   heroHeader.setHeight();
   
