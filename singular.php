@@ -116,6 +116,7 @@
   
   <?php if ( comments_open() && !post_password_required() ) : ?>
     <div class="wrapper">
+      <h2 class="main__heading-2">コメントフォーム</h2>
       <?php comments_template(); ?>
     </div><!--.wrapper-->
   <?php endif; ?>

@@ -1,14 +1,15 @@
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
-
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
   entry: './src/js/index.js',
   output: {
-    filename: 'script.js'
+    filename: 'script.js',
+    path: __dirname + '/dist/js'
   },
+  cache: true,
+  watch: false,
   watchOptions: {
-    ignored: /node_modules/
+    ignored: [ '/node_modules/**', '/dist/**' ]
   },
   module: {
     rules: [
@@ -24,16 +25,24 @@ module.exports = {
                 {
                   useBuiltIns: 'usage',
                   corejs: 3,
-                  debug: false
+                  debug: true
                 }
               ]
             ]
           }
         }
+      },
+      
+      {
+        test: /\.css$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: { url: false }
+          }
+        ]
       }
-    ]
-  },
-  plugins: [
-    new HardSourceWebpackPlugin()
-  ]
+    ],
+  }
 };
