@@ -15,15 +15,16 @@
     </svg>
   </div><!--.hero-header__bg-->
 
-
   <div class="hero-header__heading">
-    <h1 class="hero-header__heading-logo">
-      <?php get_template_part('template_parts/logo'); ?>
-    </h1>
+    <div class="wrapper">
+      <h1 class="hero-header__heading-logo">
+        <?php get_template_part('template_parts/logo'); ?>
+      </h1>
 
-    <p class="hero-header__heading-catch-copy">
-      <?php bloginfo('description'); ?>
-    </p>
+      <p class="hero-header__heading-catch-copy">
+        <?php bloginfo('description'); ?>
+      </p>
+    </div>
   </div><!--.hero-header__heading-->
 
 </div><!--.hero-header-->
