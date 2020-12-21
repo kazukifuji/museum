@@ -6,7 +6,9 @@
 
 museumは、Ajax通信を用いたページング機能と、レスポンシブな可変グリッドレイアウトが特徴の、WordPressテーマです。
  
-<img width="560" height="420" src="https://raw.githubusercontent.com/kazukifuji/museum/master/screenshot.jpg">
+<p align="center">
+ <img width="600" src="https://raw.githubusercontent.com/kazukifuji/museum/master/screenshot.jpg">
+</p>
 
 ## 開発者
 
