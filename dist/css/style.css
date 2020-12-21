@@ -1050,13 +1050,14 @@ a {
 .hero-header__heading {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 0;
   text-align: center;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
+  width: 100%;
 }
 
 .hero-header__heading-logo {
-  margin: 0;
+  margin: 0.2em 0;
 }
 
 .hero-header__heading-catch-copy {
