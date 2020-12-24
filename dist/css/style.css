@@ -621,15 +621,11 @@ a {
   font-size: 1.6rem;
 }
 
-.comments .comment-respond .comment-reply-title::after {
-  clear: both;
-  content: '';
-  display: block;
-}
-
 .comments .comment-respond .comment-reply-title small {
-  float: right;
+  display: block;
   font-weight: normal;
+  margin: 1em 0 0 0;
+  text-align: right;
 }
 
 .comments .comment-respond .comment-reply-title small a {

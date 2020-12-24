@@ -5,16 +5,12 @@
 
     .comment-reply-title {
       font-size: 1.6rem;
-
-      &::after {
-        clear: both;
-        content: '';
-        display: block;
-      }
       
       small {
-        float: right;
+        display: block;
         font-weight: normal;
+        margin: 1em 0 0 0;
+        text-align: right;
 
         a {
           @include button-2(small);
