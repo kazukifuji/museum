@@ -14,7 +14,7 @@
       <?php get_template_part( 'template_parts/hamburger-button' ); ?>
     </header>
 
-    <div class="content">
+    <div id="content" class="content">
     
       <?php if ( is_home() || is_front_page() ) get_template_part( 'template_parts/hero-header' ); ?>
 
