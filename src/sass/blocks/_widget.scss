@@ -1,9 +1,9 @@
 .widget {
   font-size: 1.3rem;
 
-  //アーカイブ、カテゴリー
+  //アーカイブ、カテゴリー、メタ情報
   //最近の投稿、固定ページ
-  &_archive, &_categories,
+  &_archive, &_categories, &_meta,
   &_recent_entries, &_pages {
     a { color: inherit }
 
