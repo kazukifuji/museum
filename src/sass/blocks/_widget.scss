@@ -1,8 +1,10 @@
 .widget {
   font-size: 1.3rem;
 
-  //アーカイブ、最近の投稿、固定ページ
-  &_archive, &_recent_entries, &_pages {
+  //アーカイブ、カテゴリー
+  //最近の投稿、固定ページ
+  &_archive, &_categories,
+  &_recent_entries, &_pages {
     a { color: inherit }
 
     ul {
