@@ -1,6 +1,31 @@
 .widget {
   font-size: 1.3rem;
 
+  //固定ページ
+  &_pages {
+    a { color: inherit }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0 0 0 10px;
+
+      &.children {
+        li:last-child {
+          padding-bottom: 0;
+        }
+      }
+
+      li {
+        padding: 8px 0;
+        
+        &:not(:last-child) {
+          border-bottom: 1px solid $gray;
+        }
+      }
+    }
+  }
+  
   .widgettitle {
     font-size: 1.5rem;
     font-weight: bold;
