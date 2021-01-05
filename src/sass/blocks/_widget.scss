@@ -2,9 +2,9 @@
   font-size: 1.3rem;
 
   //アーカイブ、カテゴリー、メタ情報
-  //最近の投稿、固定ページ
+  //最近のコメント、最近の投稿、固定ページ
   &_archive, &_categories, &_meta,
-  &_recent_entries, &_pages {
+  &_recent_comments, &_recent_entries, &_pages {
     a { color: inherit }
 
     ul {
@@ -26,6 +26,11 @@
         }
       }
     }
+  }
+
+  //最近のコメント
+  &_recent_comments {
+    a { text-decoration: underline }
   }
 
   //タグクラウド
