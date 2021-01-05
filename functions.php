@@ -14,6 +14,7 @@
 
 ＊ウィジェット関連
 -ウィジェットを登録
+-使用しないデフォルトウィジェットを非表示
 
 ＊ナビゲーションメニュー関連
 -カスタムナビゲーションメニューを登録
@@ -127,6 +128,19 @@ function museum_widgets() {
     'before_title' => '<h4 class="widgettitle">',
     'after_title' => '</h4>',
   ]);
+}
+
+
+// 使用しないデフォルトウィジェットを非表示
+add_action( 'widgets_init', 'museum_unregister_default_widgets' );
+function museum_unregister_default_widgets() {
+  unregister_widget('WP_Widget_Calendar');    //カレンダー 
+  unregister_widget('WP_Widget_RSS');         //RSS
+  unregister_widget('WP_Nav_Menu_Widget');    //ナビゲーションメニュー
+  unregister_widget('WP_Widget_Media_Video');   //動画
+  unregister_widget('WP_Widget_Media_Audio');   //音声
+  unregister_widget('WP_Widget_Media_Gallery'); //ギャラリー
+  unregister_widget('WP_Widget_Custom_HTML');   //カスタムHTML
 }
 
 

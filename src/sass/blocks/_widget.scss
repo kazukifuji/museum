@@ -1,34 +1,47 @@
 .widget {
   font-size: 1.3rem;
 
-  a {
-    color: inherit;
+  //アーカイブ、カテゴリー、メタ情報
+  //最近のコメント、最近の投稿、固定ページ
+  &_archive, &_categories, &_meta,
+  &_recent_comments, &_recent_entries, &_pages {
+    a { color: inherit }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0 0 0 10px;
+
+      &.children {
+        li:last-child {
+          padding-bottom: 0;
+        }
+      }
+
+      li {
+        padding: 8px 0;
+        
+        &:not(:last-child) {
+          border-bottom: 1px solid $gray;
+        }
+      }
+    }
   }
 
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0 0 0 10px;
+  //最近のコメント
+  &_recent_comments {
+    a { text-decoration: underline }
+  }
 
-    &.children {
-      li:last-child {
-        padding-bottom: 0;
-      }
-    }
-
-    li {
-      padding: 8px 0;
-      
-      &:not(:last-child) {
-        border-bottom: 1px solid $gray;
-      }
-    }
+  //タグクラウド
+  &_tag_cloud {
+    a { color: inherit }
   }
 
   .widgettitle {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    margin: 0 0 5px 0;
+    margin: 0 0 1em 0;
   }
   
   .screen-reader-text {
