@@ -1,8 +1,8 @@
 .widget {
   font-size: 1.3rem;
 
-  //固定ページ
-  &_pages {
+  //最近の投稿、固定ページ
+  &_recent_entries, &_pages {
     a { color: inherit }
 
     ul {
