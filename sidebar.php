@@ -1,7 +1,8 @@
 <div id="sidebar" class="sidebar">
+
   <div class="sidebar__inner">
-    
-    <?php 
+    <?php
+    //ロゴ
     get_template_part('template_parts/logo');
 
     //ナビゲーションメニュー
@@ -14,10 +15,10 @@
     } 
 
     //ウィジェット
-    if (is_active_sidebar('sidebar')) {
+    if ( is_active_sidebar('sidebar') ) {
       dynamic_sidebar('sidebar');
     }
     ?>
-    
   </div><!--.sidebar__inner-->
+
 </div><!--.sidebar-->
