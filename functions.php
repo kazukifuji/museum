@@ -69,7 +69,7 @@ function museum_theme_supports() {
 
 
 //デフォルトのヘッダー画像を登録
-add_action( 'after_serup_theme', 'museum_default_headers' );
+add_action( 'after_setup_theme', 'museum_default_headers' );
 function museum_default_headers() {
   register_default_headers([
     'default-image' => [
