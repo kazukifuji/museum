@@ -178,11 +178,15 @@ remove_filter( 'comment_text', 'make_clickable', 9 );
 //コメントフォームの内容をカスタマイズ
 add_filter( 'comment_form_defaults', 'museum_comment_form_default' );
 function museum_comment_form_default( $args ) {
-  unset($args['fields']['email']);
   unset($args['fields']['url']);
   $args['fields']['author'] = '<p class="comment-form-author"><label for="author">名前</label> ' .
                                 '<input id="author" name="author" type="text" value="名無しさん" size="30" maxlength="30">' .
                               '</p>';
+  if ( get_option( 'require_name_email' ) ) {
+    $args['fields']['email'] = '<p class="comment-form-email"><label for="email">メールアドレス</label><span>（一般には公開されません。）</span><input id="email" name="email" type="text" value="" size="30" maxlength="100" required="required"></p>';
+  } else {
+    unset($args['fields']['email']);
+  }
   $args['fields']['cookies'] = '<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"> <label for="wp-comment-cookies-consent">次回のコメントで使用するためブラウザーに自分の名前を保存する。</label></p>';
   $args['submit_button'] = '<button name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s">%4$s</button>';
   return $args;
