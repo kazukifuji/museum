@@ -179,9 +179,7 @@ remove_filter( 'comment_text', 'make_clickable', 9 );
 add_filter( 'comment_form_defaults', 'museum_comment_form_default' );
 function museum_comment_form_default( $args ) {
   unset($args['fields']['url']);
-  $args['fields']['author'] = '<p class="comment-form-author"><label for="author">名前</label> ' .
-                                '<input id="author" name="author" type="text" value="名無しさん" size="30" maxlength="30">' .
-                              '</p>';
+  $args['fields']['author'] = '<p class="comment-form-author"><label for="author">名前</label><input id="author" name="author" type="text" value="名無しさん" size="30" maxlength="30"></p>';
   if ( get_option( 'require_name_email' ) ) {
     $args['fields']['email'] = '<p class="comment-form-email"><label for="email">メールアドレス</label><span>（一般には公開されません。）</span><input id="email" name="email" type="text" value="" size="30" maxlength="100" required="required"></p>';
   } else {
