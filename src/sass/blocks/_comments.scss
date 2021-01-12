@@ -1,7 +1,7 @@
 .comments {
 
   .comment-respond {
-    overflow: hidden;
+    padding: 0.1px 0;
 
     .comment-reply-title {
       font-size: 1.6rem;
@@ -37,13 +37,12 @@
         color: gray;
       }
 
-      textarea, input[type='text'] {
-        box-sizing: border-box;
-        background: #F8F8F8;
-        border: none;
-        padding: 10px;
-        resize: none;
-        width: 100%;
+      input[type='text'] {
+        @include text-field();
+      }
+
+      textarea {
+        @include text-area();
       }
 
       .form-submit {
@@ -58,7 +57,7 @@
   }
 
   .comment-list {
-    overflow: hidden;
+    padding: 0.1px 0;
 
     .comment-list-title {
       font-size: 1.6rem;
