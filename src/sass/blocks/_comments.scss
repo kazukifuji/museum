@@ -37,13 +37,12 @@
         color: gray;
       }
 
-      textarea, input[type='text'] {
-        box-sizing: border-box;
-        background: #F8F8F8;
-        border: none;
-        padding: 10px;
-        resize: none;
-        width: 100%;
+      input[type='text'] {
+        @include text-field();
+      }
+
+      textarea {
+        @include text-area();
       }
 
       .form-submit {
