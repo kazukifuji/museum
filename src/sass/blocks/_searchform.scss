@@ -31,7 +31,7 @@
       stroke-linecap: round;
       stroke-linejoin: round;
       transform: scale(1.9);
-      transition: stroke 0.2s linear, transform 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+      transition: stroke 0.2s linear;
       width: 10px;
     }
 
@@ -40,7 +40,6 @@
 
       .searchform__submit-icon {
         stroke: white;
-        transform: scale(1.9) rotate(360deg);
       }  
     }
   }
