@@ -20,12 +20,12 @@
   }
 
   & &__inner {
-    align-items: center;
     display: flex;
     flex-direction: column;
     padding: 20px;
-
+    
     @include media-query(tc) {
+      align-items: center;
       flex-direction: row;
     }
 
@@ -46,6 +46,10 @@
     height: 100%;
     position: relative;
     width: 100%;
+
+    @include media-query(tc) {
+      flex: 0 0 40%;
+    }
 
     &::before {
       content: '';
