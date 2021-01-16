@@ -265,7 +265,7 @@ function museum_blog_card( $atts ) {
             <div class="blog-card__container">
               <?php the_title( '<p class="blog-card__title">', '</p>' ); ?>
 
-              <?php $excerpt = wp_html_excerpt( strip_shortcodes( get_the_content() ), 70, '...' );
+              <?php $excerpt = wp_html_excerpt( strip_shortcodes( get_the_content() ), 100, '...' );
               if ( $excerpt !== '' ) : ?>
                 <p class="blog-card__excerpt">
                   <?php echo $excerpt; ?>
