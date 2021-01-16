@@ -14,23 +14,21 @@
   foreach ( $posts as $p ) : if ( $p['object'] ) : ?>
 
     <div class="posts-navigation__item -<?php echo $p['type']; ?>">
+      <p class="posts-navigation__item-type">
+        <span class="posts-navigation__item-type-icon">
+          <svg class="posts-navigation__item-type-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M15 18l-6-6 6-6"></path>
+          </svg>
+        </span>
 
-      <div class="posts-navigation__item-flex-container">
-          <span class="posts-navigation__item-icon">
-            <svg class="posts-navigation__item-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-              <path d="M15 18l-6-6 6-6"></path>
-            </svg>
-          </span>
-
-          <p class="posts-navigation__item-title">
-            <?php echo $p['type'] === 'prev' ? 'Prev' : 'Next'; ?>
-          </p>
-      </div><!--.posts-navigation__item-flex-contaier-->
+        <span class="posts-navigation__item-type-name">
+          <?php echo $p['type'] === 'prev' ? 'Prev' : 'Next'; ?>
+        </span>
+      </p>
 
       <div class="posts-navigation__item-post">
         <a class="posts-navigation__item-post-link" href="<?php echo esc_url( get_permalink( $p['object'] ) ); ?>">
-
-          <div class="posts-navigation__item-flex-container">
+          <div class="posts-navigation__item-post-inner">
 
             <?php if ( has_post_thumbnail( $p['object']->ID ) ) : ?>
               <figure class="posts-navigation__item-post-thumbnail">
@@ -38,21 +36,21 @@
               </figure>
             <?php endif; ?>
 
-            <h3 class="posts-navigation__item-post-title">
-              <?php $title = esc_html( get_the_title( $p['object']->ID ) );
-              if ( $title !== '' ) {
-                echo $title;
-              } else {
-                echo 'No title';
-              } ?>
-            </h3>
+            <div class="posts-navigation__item-post-container">
+              <?php if ( $p['object']->post_title !== '' ) : ?>
+                <h3 class="posts-navigation__item-post-title"><?php echo $p['object']->post_title; ?></h3>
+              <?php endif; ?>
 
-          </div><!--.posts-navigation__item-flex-contaier-->
+              <?php $excerpt = wp_html_excerpt( strip_shortcodes( $p['object']->post_content ), 40, '...' );
+              if ( $excerpt !== '' ) : ?>
+                <p class="posts-navigation__item-post-excerpt"><?php echo $excerpt; ?></p>
+              <?php endif; ?>
+            </div><!--.posts-navigation__item-post-container-->
 
+          </div><!--.posts-navigation__item-post-inner-->
         </a>
       </div><!--.posts-navigation__item-post-->
-
-    </div><!--.posts-navigation__item-->
+    </div><!--.posts-mavigation__item-->
 
   <?php endif; endforeach; ?>
 </aside>
