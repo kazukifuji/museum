@@ -1,93 +1,116 @@
 .posts-navigation {
-  &::after {
-    clear: both;
-    content: '';
-    display: block;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  @include media-query(pc) {
+    align-items: normal;
+    flex-direction: row;
+    justify-content: center;
   }
 
   &__item {
-    max-width: 500px;
-    margin: 15px auto;
+    margin: 15px;
+    max-width: 450px;
+    width: 100%;
 
-    @include media-query(tc) {
-      width: 45%;
-
-      &.-prev {
-        float: left;
-      }
-
-      &.-next {
-        float: right;
+    @include media-query(sph) {
+      @include media-query-below(pc) {
+        max-width: 700px;
       }
     }
 
-    &-flex-container {
-      align-items: center;
+    &-type {
       display: flex;
-    }
-    &.-next &-flex-container {
-      flex-direction: row-reverse;
-    }
+      font-size: 2rem;
+      margin: 0;
+      padding: 0 0.5em;
 
-    &-icon {
+      &-name {
+        font-weight: bold;
+      }
 
-      &-svg {
-        fill: none;
-        height: 10px;
-        stroke: $black;
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        transform: scale(2.2);
-        width: 10px;
+      &-icon {
+        margin: 0 0.5em;
+
+        &-svg {
+          fill: none;
+          height: 14px;
+          stroke: $black;
+          stroke-width: 2;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          transform: scale(2.2);
+          width: 14px;
+        }
       }
     }
-    &.-next &-icon {
-      transform: rotateY(180deg);
-    }
 
-    &-title {
-      font-size: 1.6rem;
-      font-weight: bold;
-      margin: 0;
-      user-select: none;
-    }
-    &.-prev &-title {
-      margin-left: 5px;
-    }
-    &.-next &-title {
-      margin-right: 5px;
+    &.-next &-type {
+      flex-direction: row-reverse;
+
+      &-icon {
+        transform: rotateY(180deg);
+      }
     }
 
     &-post {
-      border-radius: 3px;
-      margin-top: 10px;
+      box-sizing: border-box;
+      padding: 10px;
+      width: 100%;
 
       &-link {
         box-shadow: 0 0 10px rgba(gray, 0.2);
+        border-radius: 5px;
         color: inherit;
         display: block;
         outline: none;
-        padding: 20px 20px;
         transition: box-shadow 0.5s;
+      
+        &:hover, &:focus { box-shadow: 0 0 10px rgba(gray, 0.8) }
+      }
 
-        &:hover, &:focus {
-          box-shadow: 0 0 10px rgba(gray, 0.8);
+      &-inner {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        
+        @include media-query(sph) {
+          @include media-query-below(pc) {
+            align-items: center;
+            flex-direction: row
+          }
+        }
+
+        & > * {
+          margin: 0;
+    
+          &:not(:last-child) {
+            margin: 0 0 0.5em 0;
+
+            @include media-query(sph) {
+              @include media-query-below(pc) {
+                margin: 0 1em 0 0
+              }
+            }
+          }
+
         }
       }
 
       &-thumbnail {
-        margin: 0;
+        height: 100%;
         position: relative;
-        width: 30%;
-        min-width: 100px;
-  
+        width: 100%;
+
+        @include media-query(sph) { flex: 0 0 30%; }
+
         &::before {
           content: '';
           display: block;
-          padding-top: 73%;
+          padding-top: 62%;
         }
-  
+
         img {
           height: 100%;
           object-fit: cover;
@@ -98,19 +121,27 @@
         }
       }
 
+      &-container {
+        display: flex;
+        flex-direction: column;
+
+        & > * {
+          margin: 0;
+      
+          &:not(:last-child) {
+            margin: 0 0 0.5em 0;
+          }
+        }
+      }
+
       &-title {
-        font-size: 1.5rem;
-        font-weight: normal;
-        margin: 0;
+        font-size: 1.4rem;
+        font-weight: bold;
+      }
+
+      &-excerpt {
+        font-size: 1.2rem;
       }
     }
-    &.-prev &-post-thumbnail {
-      margin-right: 10px;
-    }
-    &.-next &-post-thumbnail {
-      margin-left: 10px;
-    }
-
   }
-
 }
