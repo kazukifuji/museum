@@ -27,6 +27,9 @@
 -コメントでタグの使用を無効にする
 -名前フィールドの初期値に「名無しさん」を設定
 
+＊ショートコード関連
+-投稿IDに応じたブログカードを出力するショートコード
+
 ＊その他カスタマイズ  
 -term_description()からpタグを削除
 -投稿の先頭固定表示機能を無効化
@@ -217,6 +220,67 @@ add_filter( 'get_comment_author', 'name_field_initial_value' );
 function name_field_initial_value( $author ) {
   if ( $author == __('Anonymous') ) $author = '名無しさん';
   return $author;
+}
+
+
+
+/*-------------------------
+
+ショートコード関連
+
+-------------------------*/
+//投稿IDに応じたブログカードを出力するショートコード
+add_shortcode( 'blog_card', 'museum_blog_card' );
+function museum_blog_card( $atts ) {
+  //属性の初期値を設定
+  $atts = shortcode_atts( [ 'post_id_arr' => [] ], $atts, 'blog_card' );
+
+  //投稿IDが指定されていなければここで処理を終了
+  if ( empty( $atts['post_id_arr'] ) ) return;
+
+  //サブクエリを発行
+  $blog_cards_query = new WP_Query([
+    'orderby'         => 'post__in',
+    'post_status'     => 'publish',
+    'post__in'        => explode( ',', $atts['post_id_arr'] ),
+    'posts_per_page'  => -1,
+  ]);
+
+  ob_start();
+
+  //サブループ
+  if ( $blog_cards_query->have_posts() ) :
+    while ( $blog_cards_query->have_posts() ) : $blog_cards_query->the_post(); ?>
+
+      <article class="blog-card">
+        <a class="blog-card__link" href="<?php the_permalink(); ?>">
+          <div class="blog-card__inner">
+
+            <?php if ( has_post_thumbnail() ) : ?>
+              <figure class="blog-card__thumbnail">
+                <?php the_post_thumbnail( 'post-thumbnail', [ 'data-object-fit' => 'cover' ] ); ?>
+              </figure>
+            <?php endif; ?>
+
+            <div class="blog-card__container">
+              <?php the_title( '<p class="blog-card__title">', '</p>' ); ?>
+
+              <?php $excerpt = wp_html_excerpt( strip_shortcodes( get_the_content() ), 70, '...' );
+              if ( $excerpt !== '' ) : ?>
+                <p class="blog-card__excerpt">
+                  <?php echo $excerpt; ?>
+                </p>
+              <?php endif; ?>
+            </div><!--.blog-card__container-->
+
+          </div><!--.blog-card__inner-->          
+        </a>
+      </article><!--.blog-card-->
+
+    <?php endwhile; wp_reset_postdata();
+  endif;
+
+  return ob_get_clean();
 }
 
 
