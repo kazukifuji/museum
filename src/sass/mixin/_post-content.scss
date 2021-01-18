@@ -21,10 +21,16 @@
     }
   }
 
+  h2 {
+    border-bottom: 2px solid $black;
+    padding-bottom: 4px;
+    padding-left: 8px;
+  }
+
   h3 {
-    border-left: 4px solid $black;
+    background: $gray;
     font-size: 16px;
-    padding: 8px 0 8px 8px;
+    padding: 8px;
 
     @include media-query(sph) {
       font-size: 18px;
@@ -40,9 +46,9 @@
   }
 
   h4 {
-    background: $gray;
+    border-left: 4px solid $black;
     font-size: 15px;
-    padding: 10px 8px;
+    padding: 4px 0 4px 8px;
 
     @include media-query(sph) {
       font-size: 17px;
