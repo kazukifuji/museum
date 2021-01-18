@@ -1,8 +1,8 @@
 //投稿内容のスタイルを出力
 @mixin post-content() {
   h1, h2, h3, h4, h5, h6 {
-    margin-top: 5em !important;
-    margin-bottom: 2em !important;
+    margin-top: 3em !important;
+    margin-bottom: 1.5em !important;
   }
 
   h1, h2 {
@@ -21,10 +21,16 @@
     }
   }
 
+  h2 {
+    border-bottom: 2px solid $black;
+    padding-bottom: 4px;
+    padding-left: 8px;
+  }
+
   h3 {
-    border-left: 4px solid $black;
+    background: $gray;
     font-size: 16px;
-    padding: 8px 0 8px 8px;
+    padding: 8px;
 
     @include media-query(sph) {
       font-size: 18px;
@@ -40,9 +46,9 @@
   }
 
   h4 {
-    background: $gray;
+    border-left: 4px solid $black;
     font-size: 15px;
-    padding: 10px 8px;
+    padding: 4px 0 4px 8px;
 
     @include media-query(sph) {
       font-size: 17px;
@@ -80,7 +86,7 @@
   }
 
   p {
-    margin: 3em 0;
+    margin: 1.5em 0;
   }
 
   figcaption {
@@ -107,7 +113,7 @@
 
   ul:not(.blocks-gallery-grid), ol {
     line-height: 1.8;
-    margin: 3em auto;
+    margin: 2em auto;
     padding-left: 2em;
 
     ul, ol {
@@ -125,7 +131,7 @@
 
   .wp-block-quote {
     border-left: 4px solid $gray;
-    margin: 3em 0;
+    margin: 2em 0;
     padding-left: 1em; 
 
     &__citation, cite {
@@ -143,7 +149,7 @@
   }
 
   .wp-block-image {
-    margin: 3em auto;
+    margin: 2em auto;
 
     img {
       height: 100%;
@@ -152,15 +158,15 @@
   }
 
   .wp-block-audio {
-    margin: 3em auto;
+    margin: 2em auto;
   }
 
   .wp-block-embed  {
-    margin: 3em auto;
+    margin: 2em auto;
   }
 
   .wp-block-table {
-    margin: 3em auto;
+    margin: 2em auto;
 
     table {
       border-spacing: initial;
@@ -183,7 +189,7 @@
   }
 
   .wp-block-gallery {
-    margin: 3em auto;
+    margin: 2em auto;
 
     .blocks-gallery-grid {
       .blocks-gallery-item {
@@ -201,7 +207,7 @@
     border-top: 4px solid $black;
     border-bottom: 4px solid $black;
     color: $black;
-    margin: 3em auto;
+    margin: 2em auto;
 
     blockquote {
       margin: 1em;
@@ -227,14 +233,14 @@
 
   .wp-block-verse {
     font-family: inherit;
-    margin: 3em auto;
+    margin: 2em auto;
     padding: 1em;
     white-space: pre-wrap;
   }
 
   .wp-block-cover {
     box-sizing: border-box;
-    margin: 3em auto;
+    margin: 2em auto;
 
     &__inner-container {
       p {
@@ -244,11 +250,11 @@
   }
 
   .wp-block-file {
-    margin: 3em auto;
+    margin: 2em auto;
   }
 
   .wp-block-media-text {
-    margin: 3em auto;
+    margin: 2em auto;
 
     &__media {
       img {
@@ -260,11 +266,11 @@
   }
 
   .wp-block-buttons {
-    margin: 3em auto;
+    margin: 2em auto;
 
     .wp-block-button {
-      margin-top: 3em;
-      margin-bottom: 3em;
+      margin-top: 2em;
+      margin-bottom: 2em;
     }
   }
   
