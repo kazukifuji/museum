@@ -151,10 +151,13 @@
   .wp-block-image {
     margin: 2em auto;
 
-    img {
-      height: 100%;
-      width: 100%;
+    &:not(.is-resized) {
+      img {
+        height: 100%;
+        width: 100%;
+      }
     }
+
   }
 
   .wp-block-audio {
