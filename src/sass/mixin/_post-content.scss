@@ -148,16 +148,11 @@
     white-space: pre !important;
   }
 
-  .wp-block-image {
-    margin: 2em auto;
+  .wp-block-image { margin: 2em auto }
 
-    &:not(.is-resized) {
-      img {
-        height: 100%;
-        width: 100%;
-      }
-    }
-
+  *:not(.is-resized) > img {
+    height: 100%;
+    width: 100%;
   }
 
   .wp-block-audio {
