@@ -242,6 +242,7 @@ function museum_blog_card( $atts ) {
   $blog_cards_query = new WP_Query([
     'orderby'         => 'post__in',
     'post_status'     => 'publish',
+    'post_type'       => 'any',
     'post__in'        => explode( ',', $atts['post_id_arr'] ),
     'posts_per_page'  => -1,
   ]);
