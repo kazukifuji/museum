@@ -33,7 +33,7 @@
       display: block;
       object-fit: cover;
       transition: transform 0.5s;
-      width: 100%;
+      width: 101%;
     }
   }
 
@@ -61,8 +61,6 @@
       font-weight: normal;
       word-break: break-all;
     }
-
-    &-footer {}
 
     &-taxonomy {
       display: flex;
@@ -95,6 +93,7 @@
       }
     }
   }
+  
   &__link:hover &__content,
   &__link:focus &__content {
     color: white;
