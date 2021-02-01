@@ -1,7 +1,7 @@
       </main><!--.main-->
 
       <footer class="footer">
-        <small class="footer__copyright">&copy; 2020-<?php echo date('Y'); ?> <?php echo esc_url( home_url() ); ?></small>
+        <small class="footer__copyright">&copy; <?php echo date('Y'); ?> <?php echo esc_url( home_url() ); ?> All rights reserved.</small>
       </footer>
 
     </div><!--.content-->

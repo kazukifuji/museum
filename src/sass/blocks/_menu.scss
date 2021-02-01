@@ -1,11 +1,11 @@
 .menu {
   border-left: 2px solid $gray;
-  font-size: 1.6rem;
-  line-height: 1.7;
+  font-size: 1.7rem;
+  line-height: 1.8;
 
   @include media-query(pc) {
-    font-size: 1.4rem;
-    line-height: 1.6;
+    font-size: 1.6rem;
+    line-height: 1.7;
   }
 
   a {

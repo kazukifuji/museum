@@ -52,7 +52,19 @@
   }
 
   &__title {
-    font-size: 1.8rem;
+    font-size: 18px;
+
+    @include media-query(sph) {
+      font-size: 20px;
+    }
+
+    @include media-query(tc) {
+      font-size: 22px;
+    }
+  
+    @include media-query(pc) {
+      font-size: 24px;
+    }
   }
 
   &__content {

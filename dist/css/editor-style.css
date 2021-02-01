@@ -372,8 +372,8 @@ body {
 }
 
 .block-editor-block-list__block {
-  margin-top: 3em;
-  margin-bottom: 3em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 .editor-post-title .editor-post-title__input {
@@ -399,8 +399,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 5em !important;
-  margin-bottom: 2em !important;
+  margin-top: 3em !important;
+  margin-bottom: 1.5em !important;
 }
 
 h1, h2 {
@@ -425,10 +425,16 @@ h1, h2 {
   }
 }
 
+h2 {
+  border-bottom: 2px solid #333;
+  padding-bottom: 4px;
+  padding-left: 8px;
+}
+
 h3 {
-  border-left: 4px solid #333;
+  background: #EEE;
   font-size: 16px;
-  padding: 8px 0 8px 8px;
+  padding: 8px;
 }
 
 @media screen and (min-width: 480px) {
@@ -450,9 +456,9 @@ h3 {
 }
 
 h4 {
-  background: #EEE;
+  border-left: 4px solid #333;
   font-size: 15px;
-  padding: 10px 8px;
+  padding: 4px 0 4px 8px;
 }
 
 @media screen and (min-width: 480px) {
@@ -502,7 +508,7 @@ h5, h6 {
 }
 
 p {
-  margin: 3em 0;
+  margin: 1.5em 0;
 }
 
 figcaption {
@@ -533,7 +539,7 @@ ul ul {
 
 ul:not(.blocks-gallery-grid), ol {
   line-height: 1.8;
-  margin: 3em auto;
+  margin: 2em auto;
   padding-left: 2em;
 }
 
@@ -551,7 +557,7 @@ ul:not(.blocks-gallery-grid) ul, ul:not(.blocks-gallery-grid) ol, ol ul, ol ol {
 
 .wp-block-quote {
   border-left: 4px solid #EEE;
-  margin: 3em 0;
+  margin: 2em 0;
   padding-left: 1em;
 }
 
@@ -569,24 +575,24 @@ ul:not(.blocks-gallery-grid) ul, ul:not(.blocks-gallery-grid) ol, ol ul, ol ol {
 }
 
 .wp-block-image {
-  margin: 3em auto;
+  margin: 2em auto;
 }
 
-.wp-block-image img {
+*:not(.is-resized) > img {
   height: 100%;
   width: 100%;
 }
 
 .wp-block-audio {
-  margin: 3em auto;
+  margin: 2em auto;
 }
 
 .wp-block-embed {
-  margin: 3em auto;
+  margin: 2em auto;
 }
 
 .wp-block-table {
-  margin: 3em auto;
+  margin: 2em auto;
 }
 
 .wp-block-table table {
@@ -609,7 +615,7 @@ ul:not(.blocks-gallery-grid) ul, ul:not(.blocks-gallery-grid) ol, ol ul, ol ol {
 }
 
 .wp-block-gallery {
-  margin: 3em auto;
+  margin: 2em auto;
 }
 
 .wp-block-gallery .blocks-gallery-grid .blocks-gallery-item {
@@ -625,7 +631,7 @@ ul:not(.blocks-gallery-grid) ul, ul:not(.blocks-gallery-grid) ol, ol ul, ol ol {
   border-top: 4px solid #333;
   border-bottom: 4px solid #333;
   color: #333;
-  margin: 3em auto;
+  margin: 2em auto;
 }
 
 .wp-block-pullquote blockquote {
@@ -651,14 +657,14 @@ ul:not(.blocks-gallery-grid) ul, ul:not(.blocks-gallery-grid) ol, ol ul, ol ol {
 
 .wp-block-verse {
   font-family: inherit;
-  margin: 3em auto;
+  margin: 2em auto;
   padding: 1em;
   white-space: pre-wrap;
 }
 
 .wp-block-cover {
   box-sizing: border-box;
-  margin: 3em auto;
+  margin: 2em auto;
 }
 
 .wp-block-cover__inner-container p {
@@ -666,11 +672,11 @@ ul:not(.blocks-gallery-grid) ul, ul:not(.blocks-gallery-grid) ol, ol ul, ol ol {
 }
 
 .wp-block-file {
-  margin: 3em auto;
+  margin: 2em auto;
 }
 
 .wp-block-media-text {
-  margin: 3em auto;
+  margin: 2em auto;
 }
 
 .wp-block-media-text__media img {
@@ -680,10 +686,10 @@ ul:not(.blocks-gallery-grid) ul, ul:not(.blocks-gallery-grid) ol, ol ul, ol ol {
 }
 
 .wp-block-buttons {
-  margin: 3em auto;
+  margin: 2em auto;
 }
 
 .wp-block-buttons .wp-block-button {
-  margin-top: 3em;
-  margin-bottom: 3em;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }

@@ -1,7 +1,8 @@
 <div id="heroHeader" class="hero-header">
 
   <div class="hero-header__bg">
-    <img class="hero-header__bg-img" src="<?php header_image(); ?>" data-object-fit="cover">
+    <?php $url = has_header_image() ? get_header_image() : get_theme_support( 'custom-header', 'default-image' ); ?>
+    <img class="hero-header__bg-img" src="<?php echo esc_url( $url ); ?>" data-object-fit="cover">
 
     <svg class="hero-header__bg-grid-line-svg" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1000 1000" height="1000" width="1000">
       <path d="M 200,0 V 1000"></path>
