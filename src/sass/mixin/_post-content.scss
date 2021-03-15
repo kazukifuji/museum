@@ -1,5 +1,13 @@
 //投稿内容のスタイルを出力
 @mixin post-content() {
+  .-no-margin {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    
+    &-top { margin-top: 0 !important; }
+    &-bottom { margin-bottom: 0 !important; }
+  }
+
   h1, h2, h3, h4, h5, h6 {
     margin-top: 3em !important;
     margin-bottom: 1.5em !important;
